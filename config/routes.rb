@@ -1,4 +1,4 @@
-Wtgsite::Application.routes.draw do |map|
+ConcOrg2::Application.routes.draw do
   
   resources :blog_categories
 

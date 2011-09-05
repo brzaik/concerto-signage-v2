@@ -7,4 +7,4 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-Wtgsite::Application.load_tasks
+ConcOrg2::Application.load_tasks

@@ -7,7 +7,7 @@ Bundler.require :default, Rails.env
 
 require 'ckeditor/middleware' #temporary fix http://github.com/galetahub/rails-ckeditor/issues/closed#issue/16
 
-module Wtgsite
+module ConcOrg2
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
