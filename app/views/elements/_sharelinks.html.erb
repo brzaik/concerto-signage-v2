@@ -1,0 +1,16 @@
+<% encodedURL = URI.escape("http://www.concerto-signage.com/view/#{ @title.downcase unless @title.nil? }") %>
+<% encodedName = URI.escape("Concerto+#{ @title.titleize unless @title.nil? }") %>
+<div id="share-links">
+	<div id="share-icons">
+		Share this:&nbsp;&nbsp;
+        <%= link_to image_tag("social-icons/delicious-32x32.png", :width => 24, :alt => "Bookmark this on Delicious"), "http://delicious.com/save?v=5&url=#{encodedURL}&title=#{encodedName}" %>
+        <%= link_to image_tag("social-icons/digg-32x32.png", :width => 24, :alt => "Digg This!"), "http://digg.com/submit?phase=2&url=#{encodedURL}&title=#{encodedName}" %>
+        <%= link_to image_tag("social-icons/facebook-32x32.png", :width => 24, :alt => "Share on Facebook"), "http://www.facebook.com/sharer.php?u=#{encodedURL}&t=#{encodedName}" %>
+        <%#= link_to image_tag("social-icons/google-32x32.png", :width => 24, :alt => "Google Bookmarks"), "http://www.google.com/bookmarks/mark?op=edit&bkmk=#{encodedURL}&title=#{encodedName}" %>
+        <%#= link_to image_tag("social-icons/reddit-32x32.png", :width => 24, :alt => "reddit this!"), "http://www.reddit.com/submit?url=#{encodedURL}" %>
+        <%= link_to image_tag("social-icons/stumbleupon-32x32.png", :width => 24, :alt=> "Stumble it"), "http://www.stumbleupon.com/submit?url=#{encodedURL}&title=#{encodedName}" %>
+        <%= link_to image_tag("social-icons/technorati-32x32.png", :width => 24, :alt => "Favorite this on Technorati!"), "http://technorati.com/faves?add=#{encodedURL}" %>
+        <%= link_to image_tag("social-icons/twitter-32x32.png", :width => 24, :alt => "Twitter this"), "http://twitter.com/home?status=Check out #{encodedName} - #{encodedURL}" %>
+  </div>
+</div>
+

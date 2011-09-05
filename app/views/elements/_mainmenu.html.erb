@@ -1,0 +1,12 @@
+	    		<div style="float:left;padding-top:18px;"><%= link_to image_tag("conclogo_menu.png", :title => 'Home', :alt => "Home"), root_path %></div>
+	        <div style="float:right;">
+	        	<ul id="mainmenu">
+		          <li<% if controller.controller_name == 'pages' and params[:slug] == 'overview' %> class="selected"<% end %>><%= link_to 'Overview', pages_path %></li>
+		          <li class="sm<% if controller.controller_name == 'pages' and params[:slug] == 'demo' %> selected<% end %>"><%= link_to 'Demo', pages_path %></li>
+		          <li class="sm<% if controller.controller_name == 'help_pages' or controller.controller_name == 'categories' %> selected<% end %>"><%= link_to 'Help', pages_path %></li>
+		          <li class="sm"><a href="http://groups.google.com/group/concerto-digital-signage" target="_blank">Forum</a></li>
+		          <li class="sm"><a href="http://webtech.union.rpi.edu/blog" target="_blank">Blog</a></li>
+		          <li class="sm<% if controller.controller_name == 'pages' and params[:slug] == 'deploy' %> selected<% end %>"><%= link_to 'Deploy', pages_path %></li>
+	          </ul>
+	        </div>
+	        <div style="clear:both;"></div>

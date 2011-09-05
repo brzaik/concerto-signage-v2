@@ -1,0 +1,11 @@
+<% if (logged_in? || flash[:notice]) %>
+<div id="adminfloat">
+	<div id="adminfloat-padding">
+		<p>
+			<% if logged_in? %><%= @adminfloat_links unless @adminfloat_links.nil? %><% end %>
+			&nbsp;&nbsp;::&nbsp;&nbsp;
+			<span style="color:lime;"><%= flash[:notice] %></span>
+		</p>
+	</div>
+</div>
+<% end %>
