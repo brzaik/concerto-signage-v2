@@ -5,7 +5,7 @@
 		          <li class="sm<% if controller.controller_name == 'pages' and params[:slug] == 'demo' %> selected<% end %>"><%= link_to 'Demo', pages_path %></li>
 		          <li class="sm<% if controller.controller_name == 'help_pages' or controller.controller_name == 'categories' %> selected<% end %>"><%= link_to 'Help', pages_path %></li>
 		          <li class="sm"><a href="http://groups.google.com/group/concerto-digital-signage" target="_blank">Forum</a></li>
-		          <li class="sm"><a href="http://webtech.union.rpi.edu/blog" target="_blank">Blog</a></li>
+		          <li class="sm"><a href="/blog">Blog</a></li>
 		          <li class="sm<% if controller.controller_name == 'pages' and params[:slug] == 'deploy' %> selected<% end %>"><%= link_to 'Deploy', pages_path %></li>
 	          </ul>
 	        </div>

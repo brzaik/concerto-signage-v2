@@ -1,7 +1,7 @@
 					<div style="float:left; width:68%; text-align:left;">
-	          <br /><p>Copyright &copy; 2009 RPI Web Technologies Group.  All rights reserved.  <%= mail_to "concerto@union.rpi.edu", "Contact Us", :encode => "hex" %></p><br />
-	          <p style="font-size:0.8em;">Concerto is released under <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License v2</a>.&nbsp; Concerto is free software; you can redistribute it and/or modify it under the terms of the License.</p>
-						
+	          <br /><p>Copyright &copy; 2007-2011 Concerto Core Team.  All rights reserved.  <%= mail_to "concerto@union.rpi.edu", "Contact Us.", :encode => "hex" %></p><br />
+	          <p style="font-size:0.8em;">Concerto is free software; you can redistribute it and/or modify it under the terms of the License.</p>
+			  <p style="font-size:0.8em;">Concerto is released under <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License v2</a>.</p>
 	          <% if current_user %>
 	            <p style="font-size:0.8em;">Welcome <%= current_user.username %>! | <%= link_to "Manage Users", users_path %> | <%= link_to 'Logout', logout_path, :confirm => 'Are you sure?' %></p>
 	          <% else %>
@@ -9,6 +9,6 @@
 	          <% end %>
 	        </div>
           <div style="float:right; width:28%; text-align:right;">
-          	<br /><%= link_to image_tag("wtglogo_footer.png", :alt => "Web Technologies Group at RPI", :title => "Web Technologies Group at RPI"), "http://webtech.union.rpi.edu" %><br />
+          	&nbsp;
           </div>
           <div style="clear:both;"></div>
