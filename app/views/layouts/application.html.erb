@@ -5,7 +5,7 @@
 	    <% if @title != nil %>
 	    <title><%= @title %> - Concerto Digital Signage</title>
 	    <% else %>
-	    <title><%= controller.controller_name.titleize %> - Concerto Digital Signage</title>
+	    <title><%= controller.controller_name.titleize %> - Concerto Digital Signage Project</title>
 	    <% end %>
 	    <meta name="keywords" content="<%= @meta_keywords %>" />
 		<meta name="description" content="<%= @meta_description %>" />
@@ -27,20 +27,21 @@
 		<p id="flashblock"><%= flash[:notice] %></p>
 		<% end %>
 		
-    	<div id="stripe2" class="help-page-index">
+    	<div id="stripe2" class="<%= content_for :stripe2_classes %>">
 	    	<div id="stripe1">
 				<div class="wrap">
 					<%= render :partial => 'elements/mainmenu' %>
 	     		</div>
 			</div>
-	      	<div id="stripe2-padding">
-		    	<div id="hp-top" class="wrap">
+	      	<div id="stripe2-padding" class="<%= content_for :stripe2padding_classes %>">
+		    	<%= content_for :stripe2_content %>
+				<!-- <div id="hp-top" class="wrap">
 		    		<div id="hp-title">
-		    			<h1><% if @extratitle != "" %><%= @extratitle %><% else %><%= @title %><% end %></h1>
+		    			<h1><%# if @extratitle != "" %><%#= @extratitle %><%# else %><%#= @title %><%# end %></h1>
 		    			<br /><br /><br />
 		    		</div>
 		    		<div style="clear:both;"></div>
-		    	</div>
+		    	</div> -->
 		    </div>
 	    </div>
 	    	
@@ -52,12 +53,12 @@
 						
 						<% # if this is pages/show/:id and a partial exists for the category, load that; otherwise, yield normally: %>
 						<% if controller.controller_name == "pages" && controller.action_name == "show" %>
-					    	<% if FileTest.exists?(RAILS_ROOT + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
+					    	<% if File.exists?(Rails.root + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
 							<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
 						  	<% else %>
-							<article>
+							<section>
 						  		<%= yield %>
-					  		</article>
+					  		</section>
 							<% end %>
 						<% else %>
 					  	<article>

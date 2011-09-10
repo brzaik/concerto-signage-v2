@@ -8,8 +8,8 @@
 		<% if current_user %>
 	  	<p class="small">Welcome <%= current_user.username %>! | <%= link_to "Manage Users", users_path %> | <%= link_to 'Logout', logout_path, :confirm => 'Are you sure?' %></p>
 		<%# else %>
-		<!--><p class="small"><%#= link_to 'Site Login', login_path %></p>-->
+		<!--<p class="small"><%#= link_to 'Site Login', login_path %></p>-->
 		<% end %>
 	</div>
 	<div style="clear:both;"></div>
-</div>
+</footer>
