@@ -14,7 +14,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 body {
   font-size: small;
   font-family: "Lucida Grande", Geneva, Arial, Verdana, sans-serif;
-  background: #191919;
+  background: #131313;
   color: #333;
   min-width: 1010px; }
 
@@ -154,18 +154,35 @@ i, em {
   width: 100%; }
 
 #stripe4 {
-  color: #ccc;
-  background: url(/assets/str4_bg.jpg) top left repeat-x;
-  width: 100%;
-  div.wrap {
-    padding: 60px 0 120px!important; }
-  p {
-    color: #ccc;
-    margin: 0;
-    padding: 0;
-    font-size: 1.2em; }
-  a {
-    color: #3399ff; } }
+	color: #ccc;
+  	background: url(/assets/str4_bg.jpg) top left repeat-x;
+  	width: 100%;
+  	
+	div.wrap {
+    	padding: 75px 0px 80px 0px !important; 
+  	}
+  
+  	footer {
+		
+		p {
+	    	color: #ccc;
+	    	margin: 0;
+	    	padding: 0;
+			padding-bottom:0.8em;
+	    	font-size: 1.2em; 
+	
+			&.small {
+				font-size:0.8em;
+			}
+		}
+  	
+		a {
+	    	color: #3399ff; 
+		} 
+	
+	}
+
+}
 
 div.innerdiv {
   width: 982px;

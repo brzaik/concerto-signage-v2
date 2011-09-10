@@ -1,14 +1,15 @@
-					<div style="float:left; width:68%; text-align:left;">
-	          <br /><p>Copyright &copy; 2007-2011 Concerto Core Team.  All rights reserved.  <%= mail_to "concerto@union.rpi.edu", "Contact Us.", :encode => "hex" %></p><br />
-	          <p style="font-size:0.8em;">Concerto is free software; you can redistribute it and/or modify it under the terms of the License.</p>
-			  <p style="font-size:0.8em;">Concerto is released under <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License v2</a>.</p>
-	          <% if current_user %>
-	            <p style="font-size:0.8em;">Welcome <%= current_user.username %>! | <%= link_to "Manage Users", users_path %> | <%= link_to 'Logout', logout_path, :confirm => 'Are you sure?' %></p>
-	          <% else %>
-	          	<p style="font-size:0.8em;"><%= link_to 'Site Login', login_path %></p>
-	          <% end %>
-	        </div>
-          <div style="float:right; width:28%; text-align:right;">
-          	&nbsp;
-          </div>
-          <div style="clear:both;"></div>
+<footer>
+	<div style="float:left; width:68%; text-align:left;">
+		<p><%= link_to "Deploy", "/deploy" %> | <%= link_to "v1 Source", "https://github.com/concerto/concerto_v1", 	:target => "_blank" %> | <%= link_to "v2 Source", "https://github.com/concerto/concerto", :target => "_blank" %> | <%= link_to "Blog", "/blog" %> | <%= mail_to "concerto@union.rpi.edu", "Contact Team", :encode => "hex" %></p> 
+		<p>&copy; 2007-2011 The Concerto Project.  All rights reserved.</p>
+		<p class="small">Concerto is free software; you can redistribute it and/or modify it under the terms of the License included with the software.</p>
+	</div>
+	<div style="float:right; width:28%; text-align:right;">
+		<% if current_user %>
+	  	<p class="small">Welcome <%= current_user.username %>! | <%= link_to "Manage Users", users_path %> | <%= link_to 'Logout', logout_path, :confirm => 'Are you sure?' %></p>
+		<%# else %>
+		<!--><p class="small"><%#= link_to 'Site Login', login_path %></p>-->
+		<% end %>
+	</div>
+	<div style="clear:both;"></div>
+</div>
