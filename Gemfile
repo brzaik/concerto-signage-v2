@@ -17,8 +17,8 @@ gem 'json'
 gem 'sqlite3'
 #gem "mysql2", "0.3.7"
 
-gem 'ckeditor', '3.5.0'
-gem "paperclip", "~> 2.3.8"
+gem "ckeditor", "~> 3.6.0"
+gem "paperclip"
 gem "acts_as_list"
 gem "friendly_id"
 #gem 'will_paginate', '~> 3.0.beta'

@@ -1,4 +1,22 @@
-<h1>New block</h1>
+<% content_for :head do %>
+	<%= javascript_include_tag "application" %>
+	
+	<script type="text/javascript">
+		$(function() {
+	     if ($('textarea').length > 0)
+	     {       
+	       var data = $('textarea');
+	       $.each(data, function(i)
+	       {
+	         CKEDITOR.replace(data[i].id);
+	       }
+	       );     
+	     }  
+	  });
+	</script>
+<% end %>
+
+<h1>New Block</h1>
 
 <%= render 'form' %>
 

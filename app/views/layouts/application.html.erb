@@ -19,9 +19,11 @@
 		<%= javascript_include_tag "html5.js" %>
 		<![endif]-->
 		
+		<%= content_for :head %>
+		
 	</head>
 
-	<body<% if controller.controller_name == "pages" && controller.action_name == "show" %> class="category_<%= @page.category.name.downcase %>"<% end %>>
+	<body>
 
 		<% if flash[:notice] %>
 		<p id="flashblock"><%= flash[:notice] %></p>
@@ -42,23 +44,9 @@
 			<div class="wrap">
       			<div id="maincontent">
         			<div id="mc" style="width:100%;">
-						<%#= render :partial => 'elements/adminfloat' %>
-						
-						<% # if this is pages/show/:id and a partial exists for the category, load that; otherwise, yield normally: %>
-						<% if controller.controller_name == "pages" && controller.action_name == "show" %>
-					    	<% if File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
-							<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
-						  	<% else %>
-							<article>
-						  		<%= yield %>
-					  		</article>
-							<% end %>
-						<% else %>
-					  	<article>
-						  	<%= yield %>
-					  	</article>
-						<% end %>
-						
+						<article>
+					  		<%= yield %>
+				  		</article>
         			</div>
           			<div style="clear:both;"></div>
         		</div>
