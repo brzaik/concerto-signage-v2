@@ -1,13 +1,66 @@
-<h1>There are two ways to build your frontpage!</h1>
-<p>Either edit the view for frontpage/index.html.erb, or set one of your actual site pages as the frontpage.</p>
-<h2>All Pages</h2>
-<ul>
-	<% @pages.each do |page| %>
-	<li><%= link_to page.title, page %></li>
-	<% end %>
-</ul>
-<h2>Common Links</h2>
-<ul>
-	<li><%= link_to "Blog", blog_posts_path %></li>
-	<li><%= link_to "Users List", users_path %></li>
-</ul>
+<div id="floatspace">
+	<div id="screenslate"><%= image_tag("screenslate.jpg", :alt => "") %></div>
+</div>
+	
+<div id="stripe2" class="fp_waves bighero">
+  	<div id="stripe1">
+		<div class="wrap">
+			<%= render :partial => 'elements/mainmenu' %>
+    	</div>
+	</div>
+    <div id="stripe2-padding">
+	   	<div class="wrap">
+	   		<div id="fpth">
+	   			<a href="http://concerto-signage.com/view/why-concerto"><%= image_tag("fpth/fpth_why.jpg", :alt => '') %></a>
+	   		</div>
+	   	</div>
+	</div>
+</div>
+  	
+<div id="stripe3">
+	<div class="wrap">
+		<div id="maincontent">
+  			<div id="mc">
+      			<%= image_tag("titles/fp_welcome.png", :alt => "Concerto is digital signage for everyone.  Now open source.") %>
+      			<br />
+				<br />
+      	
+      			<%= link_to image_tag("dl_icon.png", :alt => "Download Concerto Free"), "/deploy" %>
+      			&nbsp;
+      			<%= link_to image_tag("repo_icon.png", :alt => "View the Code (v1)"), 'http://github.com/concerto/concerto_v1', :target => "_blank" %>
+      			<%= link_to "Download the latest code release (v1.9.3, 1.6 MB)", "/downloads/concerto-1.9.3-NoCAS.tar.gz", :style => 'color:#333;font-size:0.8em;margin-left:15px;font-weight:normal;' %>
+      			<br />
+				<br />
+				<br />
+      			<h3>Concerto is a free, Web-based broadcast medium for digital announcements that <i>just works</i>.  Using Concerto, it's easy to engage large communities of people with graphical and text-based flyers, alerts, and other messages.</h3>
+			</div>
+
+  			<div class="sb" style="margin-top:100px;">
+  	
+  				<div class="sb-item">
+  					<div class="sb-top">
+  						<div class="sb-top-padding">
+  							<h1>On the Web Tech Blog</h1>
+  						</div>
+  					</div>
+  					<div class="sb-mid">
+  						<div class="sb-mid-padding">
+	        			</div>
+      				</div>
+      				<div class="sb-bot">&nbsp;</div>
+  				</div>
+
+  				<%#= render :partial => 'elements/sharelinks_sb', :locals => { :sharetitle => 'Share Concerto' }  %>
+  		        		
+  			</div>
+
+    		<div style="clear:both;"></div>
+  		</div>
+	</div>
+</div>
+
+<div id="stripe4">
+	<div class="wrap">
+		<%= render :partial => 'elements/footer' %>
+  	</div>
+</div>

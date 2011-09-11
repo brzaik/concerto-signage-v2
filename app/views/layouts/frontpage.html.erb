@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+ 	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <% if @title != nil %>
+	    <title><%= @title %> - Concerto Digital Signage</title>
+	    <% else %>
+	    <title><%= controller.controller_name.titleize %> - Concerto Digital Signage Project</title>
+	    <% end %>
+	    <meta name="keywords" content="<%= @meta_keywords %>" />
+		<meta name="description" content="<%= @meta_description %>" />
+		
+		<%= stylesheet_link_tag "application" %>
+		<%#= javascript_include_tag "application" %>
+		<%#= javascript_include_tag :ckeditor %>
+		<%= csrf_meta_tag %>
+
+		<!--[if lt IE 9]>
+		<%= javascript_include_tag "html5.js" %>
+		<![endif]-->
+		
+	</head>
+
+	<body>
+
+		<% if flash[:notice] %>
+		<p id="flashblock"><%= flash[:notice] %></p>
+		<% end %>
+		
+		<%= yield %>
+
+  	</body>
+</html>
