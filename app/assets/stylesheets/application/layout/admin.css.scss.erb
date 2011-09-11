@@ -1,0 +1,67 @@
+// Admin UI 
+
+@import "../base/variables";
+@import "../base/mixins";
+
+//////////
+
+
+// Pages:
+div.adminpage {
+	@include rounded(4px, 4px, 4px, 4px);
+	display:block;
+	padding:2px 4px;
+	background:#ccc;
+	
+	a {
+		text-transform: uppercase;
+		letter-spacing:0.05em;
+		font-size:0.9em;
+	}
+	
+	p {
+		margin:0px;
+		padding:0px;
+	}
+}
+
+// Columns:
+div.admincolumn {
+	@extend div.adminpage;
+	
+	background:#666;
+	color:#999;
+	
+	a {
+		color:#ccc;
+	}
+}
+
+// Blocks:
+div.adminblock {
+	@extend div.adminpage;
+	
+	display:none;
+	position:absolute;
+	top:35px;
+	right:0px;
+	background:url(<%= asset_path("transp_bl.png") %>) repeat;
+	
+	a {
+		color:#FFF;
+	}
+	
+	p {
+		color:#666;
+	}
+}
+
+div.block:hover {
+	background:#eee;
+	position:relative;
+
+	div.adminblock {
+		display:block;
+	}
+
+}
