@@ -2,14 +2,16 @@
 /* Author: Brian R Zaik (http://brzaik.com) */
 
 @import "../base/reset";
+@import "../base/variables";
 
 //////////
+
 
 
 div {
   &.wrap {
     position: relative;
-    width: 980px;
+    width: $wrap-width;
     margin: 0 auto; }
   &.indent {
     padding-left: 22px;
@@ -257,14 +259,14 @@ ul#mainmenu {
     margin: 0 2px;
     padding: 12px 0 0;
     a {
-      background: image-url('menu_bg_inact.png') top center no-repeat;
+	  background: image-url('menu_bg_inact.png') top center no-repeat;
       display: block;
       width: 90px;
       padding: 14px 18px 40px;
-      color: #333;
+      color: #111;
       font-size: 1.6em;
-      font-weight: 700;
-      font-family: "Myriad Pro", Verdana, Arial, sans-serif;
+      font-weight: normal;
+      font-family: $sans-headers;
       text-decoration: none;
       text-align: center; }
     &.selected a {

@@ -1,54 +1,79 @@
-/*######  FORMS  ######*/
+
+/*##########################################################################*/
+/*  Form Minimals  */
+/*##########################################################################*/
 
 @import "mixins";
+@import "variables";
 
-//////
+//////////////////
 
-
-label, input, textarea, select {
-	font-size: 1.2em;
-  	line-height: normal;
-  	padding: 2px; 
-}
-
-label {
-  	color: #666; 
-}
-
-input, textarea, select {
-  	margin-top: 4px; 
-}
-
-.bigger {
-
-  	label, input, textarea {
-    	width: 500px; 
-	} 
-
-}
-
-input:focus, textarea:focus {
-  	background: #eaf4ff;
-  	color: #006699; 
-}
-
-div.ajax_form {
-  	
-	form {
-		//@include rounded(8px, 8px, 8px, 8px);
-    	border: solid 1px #666;
-    	margin: 12px;
-    	margin-bottom: 0px;
-    	padding: 8px; 
+form {
+	
+	h1 {
+		clear: both;
+		color: #333;
+    	font-size: 1.35em;
+    	font-weight: normal;
+    	border-bottom: solid 1px #999;
+    	padding-top: 22px;
+    	margin-bottom: 14px; 
 	}
-  	
-	.field {
-    	float: left;
-    	margin: 0px 8px; 
+	
+	fieldset {
+		
+		padding:18px 0px;
+		
+		.field {
+			margin-bottom:10px;
+
+			label {
+				color:#666;
+				font-family: $sans-headers;
+				font-size:1em;
+				letter-spacing:0em;
+			}
+
+			.inputs, .fieldbox {
+	      		clear:both;
+	      		margin-bottom: 12px; 
+			}
+
+	    	.inputs input, .fieldbox input {
+	      		padding: 5px;
+	      		background: #fefefe image-url('textfield_bg.png') top left repeat-x;
+	      		border: solid 1px #999; 
+			}
+
+	    	.inputs {
+
+	      		input {
+					width:95%;
+				}		
+		
+				textarea {
+	        		width:95%;
+	        		height: 100px;
+	        		padding: 2px;
+	        		background: #fefefe image-url('textfield_bg.png') top left repeat-x;
+	        		border: solid 1px #999; 
+				}
+
+	      		input.alert {
+	        		border: solid 2px #cc3333; 
+				} 
+
+			}
+
+	    	.fieldbox {
+	      		border: solid 1px #ccc;
+	      		padding: 4px 6px;
+				@include rounded(6px, 6px, 6px, 6px);
+			}
+
+		}
+		
 	}
 
-  	.actions {
-    	padding-top: 14px; 
-	} 
-
+	 
 }

@@ -1,11 +1,13 @@
-code {
-  font-family: monospace; }
-
 /* Headers */
 
+@import "variables";
+
+////////
+
+
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 18px;
-  font-family: "Myriad Pro", Verdana, Arial, sans-serif;
+  margin-bottom: 18px !important;
+  font-family: $sans-headers;
   font-weight: 700; }
 
 h1 {
@@ -21,7 +23,7 @@ h3 {
   font-weight: 400; }
 
 a {
-  color: #069;
+  color: $concerto-blue;
   font-weight: 700;
   text-decoration: none; }
 
@@ -38,3 +40,6 @@ small {
 
 h1 small {
   padding-left: 12px; }
+
+code {
+  font-family: monospace; }
