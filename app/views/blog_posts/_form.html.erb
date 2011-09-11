@@ -1,19 +1,28 @@
 <%= form_for(@blog_post) do |f| %>
-  <%= f.error_messages %>
+ 	<%= f.error_messages %>
   
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :blog_category_id %><br />
-  <%= f.select :blog_category_id, BlogCategory.all.collect {|c| [ c.name, c.id ] }  %>
-  </div> 
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= ckeditor_textarea("blog_post", "body", :width => '50%', :height => '200px') %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<fieldset>
+  		<div class="field">
+    		<%= f.label :title %>
+    		<div class="inputs">
+				<%= f.text_field :title %>
+			</div>
+  		</div>
+  		<div class="field">
+    		<%= f.label :blog_category_id %>
+  			<div class="inputs">
+				<%= f.select :blog_category_id, BlogCategory.all.collect {|c| [ c.name, c.id ] }  %>
+			</div>
+  		</div> 
+  		<div class="field">
+    		<%= f.label :body %>
+    		<div class="inputs">
+				<%= ckeditor_textarea("blog_post", "body", :width => '50%', :height => '200px') %>
+			</div>
+  		</div>
+  		<div class="actions">
+    		<%= f.submit %>
+  		</div>
+	</fieldset>
+	
 <% end %>

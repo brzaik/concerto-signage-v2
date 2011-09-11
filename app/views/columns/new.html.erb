@@ -1,5 +1,8 @@
-<h1>New column for page <%= @page.title %></h1>
+<section class="single">
+	<%= link_to 'Back', columns_path %>
 
-<%= render :partial => 'form', :locals => { :page => @page, :column => @column } %>
+	<h1>New column for '<%= @page.title %>'</h1>
 
-<%= link_to 'Back', columns_path %>
+	<%= render :partial => 'form', :locals => { :page => @page, :column => @column } %>
+</section>
+	

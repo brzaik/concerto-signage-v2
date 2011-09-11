@@ -1,19 +1,28 @@
 <%= form_for([@page, @column]) do |f| %>
-  <%= f.error_messages %>
+	<%= f.error_messages %>
 
-  <div class="field">
-    <%= f.label :width %><br />
-    <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br />
-    <%= f.text_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :is_clear %><br />
-    <%= f.check_box :is_clear %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<fieldset>
+  		<div class="field">
+    		<%= f.label :width %>
+    		<div class="inputs">
+				<%= f.text_field :width %>
+			</div>
+  		</div>
+  		<div class="field">
+    		<%= f.label :position %>
+    		<div class="inputs">
+				<%= f.text_field :position %>
+			</div>
+  		</div>
+  		<div class="field">
+    		<%= f.label :is_clear %>
+    		<div class="inputs">
+				<%= f.check_box :is_clear %>
+			</div>
+  		</div>
+  		<div class="actions">
+    		<%= f.submit %>
+  		</div>
+	</fieldset>
+	
 <% end %>

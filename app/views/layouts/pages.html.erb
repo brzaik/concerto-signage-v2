@@ -27,9 +27,9 @@
 		<p id="flashblock"><%= flash[:notice] %></p>
 		<% end %>
 		
-		<% if File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
+		<% if controller.controller_name == "pages" && controller.action_name == "show" && File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
 		
-		<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
+			<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
 	  	
 		<% else %>
 		

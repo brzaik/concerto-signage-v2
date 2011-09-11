@@ -1,24 +1,33 @@
 <%= form_for([@blog_comment]) do |f| %>
 
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>  
-  <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<fieldset>		
+  		<div class="field">
+    		<%= f.label :body %>
+    		<div class="inputs">
+				<%= f.text_area :body %>
+			</div>
+  		</div>
+  		<div class="field">
+    		<%= f.label :name %>
+    		<div class="inputs">
+				<%= f.text_field :name %>
+			</div>
+  		</div>  
+  		<div class="field">
+    		<%= f.label :email %>
+    		<div class="inputs">
+				<%= f.text_field :email %>
+			</div>
+  		</div>  
+  		<div class="field">
+    		<%= f.label :website %>
+    		<div class="inputs">
+				<%= f.text_field :website %>
+			</div>
+  		</div>
+  		<div class="actions">
+    		<%= f.submit %>
+  		</div>
+	</fieldset>
+	
 <% end %>
