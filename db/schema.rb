@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911054851) do
+ActiveRecord::Schema.define(:version => 20110911231814) do
 
   create_table "blocks", :force => true do |t|
     t.string   "name"
@@ -85,6 +85,9 @@ ActiveRecord::Schema.define(:version => 20110911054851) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "controller_name", :default => "pages"
+    t.string   "page_slug"
+    t.boolean  "was_helpful",     :default => false
   end
 
   create_table "pages", :force => true do |t|
