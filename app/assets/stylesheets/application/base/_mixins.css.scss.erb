@@ -31,3 +31,10 @@
     -moz-box-shadow: $shadow;
     -webkit-box-shadow: $shadow;
 }
+
+@mixin transition($attr) {
+	-webkit-transition: $attr;
+	-moz-transition: $attr;
+	-o-transition: $attr;
+	transition: $attr;
+}
