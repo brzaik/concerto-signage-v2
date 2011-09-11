@@ -1,3 +1,7 @@
+<% content_for :title do %>
+	<%= @page.title.titleize %>
+<% end %>
+
 <% if current_user && current_user.is_admin? %>
 <hgroup>
 	<h2><%= link_to "Add Column", new_page_column_path(@page) %> | <%= link_to "Edit Details", edit_page_path(@page) %></h2>

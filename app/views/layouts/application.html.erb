@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
- 	   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	    <% if @title != nil %>
-	    <title><%= @title %> - Concerto Digital Signage</title>
-	    <% else %>
-	    <title><%= controller.controller_name.titleize %> - Concerto Digital Signage Project</title>
-	    <% end %>
+ 	   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><%= yield_for_title(:title, controller.controller_name.titleize) %> - Concerto Digital Signage Project</title>
+		
 	    <meta name="keywords" content="<%= @meta_keywords %>" />
 		<meta name="description" content="<%= @meta_description %>" />
 		
