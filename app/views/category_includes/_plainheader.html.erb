@@ -1,0 +1,31 @@
+<div id="stripe2">
+	<div id="stripe1">
+		<div class="wrap">
+			<%= render :partial => 'elements/mainmenu' %>
+ 		</div>
+	</div>
+	<div id="stripe2-padding" class="pagebg_overview"> 
+		<div class="wrap" id="hp-top"> 
+			<div id="hp-title"> 
+				<h1><%=raw @page.short_description.capitalize %></h1> 
+			    <br /><br /><br /> 
+			</div> 
+			<div style="clear:both;"></div> 
+    	</div> 
+    </div> 
+</div>
+	
+<div id="stripe3">
+	<div class="wrap">
+		<div id="maincontent">
+			<div id="mc" style="width:100%;">
+
+				<article>
+					<%= yield %>
+				</article>
+					
+			</div>
+  			<div style="clear:both;"></div>
+		</div>
+	</div>
+</div>
