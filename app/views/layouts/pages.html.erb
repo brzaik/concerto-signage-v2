@@ -27,7 +27,13 @@
 		<p id="flashblock"><%= flash[:notice] %></p>
 		<% end %>
 		
-    	<div id="stripe2" class="<%= content_for :stripe2_classes %>">
+		<% if File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
+		
+		<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
+	  	
+		<% else %>
+		
+		<div id="stripe2" class="<%= content_for :stripe2_classes %>">
 	    	<div id="stripe1">
 				<div class="wrap">
 					<%= render :partial => 'elements/mainmenu' %>
@@ -42,28 +48,18 @@
 			<div class="wrap">
       			<div id="maincontent">
         			<div id="mc" style="width:100%;">
-						<%#= render :partial => 'elements/adminfloat' %>
-						
-						<% # if this is pages/show/:id and a partial exists for the category, load that; otherwise, yield normally: %>
-						<% if controller.controller_name == "pages" && controller.action_name == "show" %>
-					    	<% if File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
-							<%= render :partial => 'category_includes/' + @page.category.name.downcase %>
-						  	<% else %>
-							<article>
-						  		<%= yield %>
-					  		</article>
-							<% end %>
-						<% else %>
-					  	<article>
-						  	<%= yield %>
-					  	</article>
-						<% end %>
-						
+	
+						<article>
+	  						<%= yield %>
+  						</article>
+							
         			</div>
           			<div style="clear:both;"></div>
         		</div>
       		</div>
 		</div>
+		
+		<% end %>
       
       	<div id="stripe4">
 			<div class="wrap">

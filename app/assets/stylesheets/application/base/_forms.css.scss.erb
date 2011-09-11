@@ -1,0 +1,54 @@
+/*######  FORMS  ######*/
+
+@import "mixins";
+
+//////
+
+
+label, input, textarea, select {
+	font-size: 1.2em;
+  	line-height: normal;
+  	padding: 2px; 
+}
+
+label {
+  	color: #666; 
+}
+
+input, textarea, select {
+  	margin-top: 4px; 
+}
+
+.bigger {
+
+  	label, input, textarea {
+    	width: 500px; 
+	} 
+
+}
+
+input:focus, textarea:focus {
+  	background: #eaf4ff;
+  	color: #006699; 
+}
+
+div.ajax_form {
+  	
+	form {
+		//@include rounded(8px, 8px, 8px, 8px);
+    	border: solid 1px #666;
+    	margin: 12px;
+    	margin-bottom: 0px;
+    	padding: 8px; 
+	}
+  	
+	.field {
+    	float: left;
+    	margin: 0px 8px; 
+	}
+
+  	.actions {
+    	padding-top: 14px; 
+	} 
+
+}
