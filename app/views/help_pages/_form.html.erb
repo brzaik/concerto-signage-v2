@@ -14,7 +14,7 @@
   		<div class="field">
 			<%= f.label :category_id, "Category" %>
 			<div class="inputs">
-				<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }  %>
+				<%= f.select :category_id, Category.where(:is_help_page => true).collect {|c| [ c.name, c.id ] }  %>
 			</div>
   		</div>
 		<div class="field">
