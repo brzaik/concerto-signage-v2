@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110912003638) do
+ActiveRecord::Schema.define(:version => 20110912012957) do
 
   create_table "blocks", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110912003638) do
   create_table "categories", :force => true do |t|
     t.string  "name"
     t.boolean "is_help_page"
+    t.text    "description"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

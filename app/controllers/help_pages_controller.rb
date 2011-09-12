@@ -1,5 +1,4 @@
 class HelpPagesController < ApplicationController
-	layout "page", :except => [:auto_complete_for_search_query]
 	before_filter :require_login, :only => [:new, :edit, :create, :update, :destroy]
 	protect_from_forgery :only => [:new, :edit, :create, :update, :destroy]
 	
@@ -22,13 +21,10 @@ class HelpPagesController < ApplicationController
   # GET /help_pages
   # GET /help_pages.json
   def index
-    @categories = Category.find(:all)
+    @categories = Category.help_page_categories
     
     @title = 'Help Center'
-    
-    @meta_description = "This is the index page for Help and Support for the Concerto Digital Signage software package.  " + @meta_description
-    @meta_keywords += " help, support, index, help center, help links, tutorial, how-to"
-    
+        
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @categories }

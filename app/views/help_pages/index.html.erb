@@ -1,26 +1,23 @@
-<% @adminfloat_links = "#{ link_to 'New Help Page', new_help_page_path }" %>
+<% if current_user && current_user.is_admin? %>
+<div class="adminpage">
+	<p>Help Pages&nbsp;&nbsp;&nbsp;<%= link_to "New Help Page", new_help_page_path %></p>
+</div>	
+<% end %>
 
-<% for @cat in @categories %>
+<% @categories.each do |cat| %>
 <div style="float:left;">
 	<div class="sb sb-cols">
 		<div class="sb-item">
 			<div class="sb-top">
 				<div class="sb-top-padding">
-					<h1><%= @cat.name %></h1>
+					<h1><%= cat.name %></h1>
 				</div>
 			</div>
 			<div class="sb-mid">
 				<div class="sb-mid-padding">
-					<% if logged_in? %>
-					<div id="adminfloat" class="sb-admin">
-        		<div id="adminfloat-padding">
-							<p><%= link_to 'Edit', :controller => 'sidebars', :action => 'edit', :id => @sb %>&nbsp;&nbsp;&nbsp;<%= link_to 'Delete', @sb, :confirm => 'Are you sure you want to delete this sidebar?', :method => :delete %></p>
-						</div>
-					</div>
-        	<% end %>
-					<p><%= @cat.description %></p>
+					<p><%= cat.description %></p>
 					<ul>
-						<% @cat.help_pages.each do |help_page| %>
+						<% cat.help_pages.each do |help_page| %>
 							<% if help_page.in_menu || logged_in?%>
 								<li id="help_page_<%=help_page.id%>"><%= link_to help_page.name, :controller => 'help_pages', :action => 'show', :id => help_page.id %><%= " [hidden]" unless help_page.in_menu %></li>
 							<% end %>
