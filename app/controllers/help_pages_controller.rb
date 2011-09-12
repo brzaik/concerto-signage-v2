@@ -38,10 +38,10 @@ class HelpPagesController < ApplicationController
   # GET /help_pages/new.json
   def new
     @help_page = HelpPage.new
-	@title = 'Create New Help Page'
+	  @title = 'Create New Help Page'
 		
     respond_to do |format|
-      format.html { render :layout => 'admin' } # new.html.erb
+      format.html {  } # new.html.erb
       format.json { render json: @help_page }
     end
   end
@@ -51,7 +51,7 @@ class HelpPagesController < ApplicationController
     @help_page = HelpPage.find(params[:id])
     @title = 'Edit Existing Help Page: <em>' + @help_page.name + '</em>'
     respond_to do |format|
-      format.html { render :layout => 'admin' } # new.html.erb
+      format.html {  } # new.html.erb
       format.xml  { render :xml => @help_page }
     end
   end

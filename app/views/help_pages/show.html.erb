@@ -6,37 +6,5 @@
 
 <br /><br /><br /><br />
 <% if @help_page.get_feedback %>
-<div id="feedback_box">
-<div id="feedback_inner">
 
-<h1>Was this information helpful?</h1>
-<h2>Your input can help us improve Concerto Help.</h2>
-		
-<% form_tag :controller => 'help_pages', :action => 'send_email', :html => { :id => 'feedback_form' } do |f|%>
-
-<p id="feedback_helpful">
-	<label for="email_helpful">Yes</label>
-	<%= radio_button "email", "helpful", "yes" %>
-	
-	<label for="email_helpful">No</label>
-	<%= radio_button "email", "helpful", "no" %>
-</p>
-<p id="feedback_msg">
-	<label for="email_body">What can we do to improve this page?</label>
-	<%= text_area "email", "body", :rows => 8, :cols => 30 %>
-	<br />
-	<label for="email_name">Name: [Optional]</label>
-	<%= text_field "email", "name", :size => 30 %>
-	<br />
-	<label for="email_address">Email: [Optional]</label>
-	<%= text_field "email", "address", :size => 30 %>
-</p>
-
-<%= hidden_field 'email', 'page_name', :value => @help_page.name %>
-<%= hidden_field 'email', 'remote_addr', :value => request.env['REMOTE_ADDR'] %>
-
-<input type="submit" value="Submit" class="primary" />
-<% end %>
-</div>
-</div>
 <% end %>

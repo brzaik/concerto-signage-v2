@@ -1,39 +1,54 @@
-<%= error_messages_for 'help_page' %>
-<fieldset>
-<!--[form:help_page]-->
-<div>
-  <%= f.label :name %>
-  <%= f.text_field 'name'  %>
-</div>
-<div>
-	<%= f.label :category %>
-	<%= select :help_page, "category_id", Category.all.collect {|p| [p.name, p.id] }, {:include_blank => false } %>
-</div>
-<div>
-  <%= f.label :content %>
-  <%= f.text_area 'content', :rows => 120  %>
-</div>
-<div>
-  <%= f.label :in_menu %>
-  <%= f.check_box 'in_menu'  %>
-</div>
-<div>
-  <%= f.label :get_feedback %>
-  <%= f.check_box 'get_feedback'  %>
-</div>
-<div>
-  <%= f.label :position %>
-  <%= f.text_field 'position'  %>
-</div>
-<div>
-	<%= f.label :short_description %>
-	<%= f.text_field :short_description %>
-</div>
-<div>
-	<%= f.label :tags %>
-	<%= f.text_field :tags %>
-</div>
-</fieldset>
-<!--[eoform:help_page]-->
+<%= form_for(@help_page) do |f| %>
+	
+	<fieldset>
+  		<div class="field">
+    		<%= f.label :name %>
+    		<div class="inputs">
+				<%= f.text_field :name %>
+			</div>
+  		</div>
+  		<div class="field">
+			<%= f.label :category_id, "Category" %>
+			<div class="inputs">
+				<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :in_menu, "Appears in Menu?" %>
+			<div class="inputs">
+				<%= f.check_box 'in_menu'  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :get_feedback, "Allow feedback?" %>
+			<div class="inputs">
+				<%= f.check_box 'get_feedback'  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :position, "Position in menu" %>
+			<div class="inputs">
+				<%= f.text_field :position  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :short_description %>
+			<div class="inputs">
+				<%= f.text_field :short_description  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :tags %>
+			<div class="inputs">
+				<%= f.text_field :tags  %>
+			</div>
+  		</div>
+  
+  		<div class="actions">
+    		<%= f.submit %>
+  		</div>
+	</fieldset>
+	
+<% end %>
 
 
