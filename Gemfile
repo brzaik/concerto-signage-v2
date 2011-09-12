@@ -14,8 +14,7 @@ end
 gem 'jquery-rails'
 gem 'json'
 
-gem 'sqlite3'
-#gem "mysql2", "0.3.7"
+gem "mysql2", "0.3.7"
 
 gem "ckeditor", "~> 3.6.0"
 gem "paperclip"

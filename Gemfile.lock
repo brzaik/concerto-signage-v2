@@ -35,8 +35,9 @@ GEM
     babosa (0.3.5)
     bcrypt-ruby (3.0.0)
     builder (3.0.0)
-    ckeditor (3.5.0)
-      mime-types (>= 1.16)
+    ckeditor (3.6.1)
+      mime-types (~> 1.16)
+      orm_adapter (~> 0.0.5)
     cocaine (0.2.0)
     coffee-rails (3.1.0)
       coffee-script (>= 2.2.0)
@@ -63,7 +64,8 @@ GEM
     mime-types (1.16)
     multi_json (1.0.3)
     mysql2 (0.3.7)
-    paperclip (2.3.16)
+    orm_adapter (0.0.5)
+    paperclip (2.4.1)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
@@ -119,13 +121,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
-  ckeditor (= 3.5.0)
+  ckeditor (~> 3.6.0)
   coffee-rails (~> 3.1.0)
   friendly_id
   jquery-rails
   json
   mysql2 (= 0.3.7)
-  paperclip (~> 2.3.8)
+  paperclip
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
   uglifier

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Category:</b>
+  <%= @help_page.category_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @help_page.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @help_page.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @help_page.user_id %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @help_page.position %>
+</p>
+
+<p>
+  <b>In menu:</b>
+  <%= @help_page.in_menu %>
+</p>
+
+<p>
+  <b>Get feedback:</b>
+  <%= @help_page.get_feedback %>
+</p>
+
+<p>
+  <b>Short description:</b>
+  <%= @help_page.short_description %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @help_page.tags %>
+</p>
+
+
+<%= link_to 'Edit', edit_help_page_path(@help_page) %> |
+<%= link_to 'Back', help_pages_path %>

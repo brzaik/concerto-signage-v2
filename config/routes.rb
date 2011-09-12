@@ -1,5 +1,7 @@
 ConcOrg2::Application.routes.draw do
   
+  resources :help_pages
+
   resources :blog_categories
 
   resources :categories
