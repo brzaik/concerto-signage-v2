@@ -1,0 +1,9 @@
+<h2>You searched for: <b><%= params[:id] %></b></h2>
+<br /><h3>Matched Help Pages:</h3>
+<ol>
+	<% for help_page in @help_pages %>
+	<li><%= link_to h(help_page.name), :controller => "help_pages", :action=>"show", :id => help_page %></li>
+  	<% end %>
+</ol>
+<br /><br />
+<p><%= link_to 'Return to Concerto Help', :action => 'index' %></p>

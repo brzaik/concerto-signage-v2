@@ -1,0 +1,27 @@
+	  <h2>Help Pages</h2>
+	  <p class="newlink"><%= link_to "Create New Help Page", :controller => :help_pages, :action => 'new', :anchor => 'content-padding' %></p>
+	  <table class="admin" border="0" cellpadding="0" cellspacing="0" width="100%">
+	    <tr>
+	      <th><center>Name</center></th>
+				<th>position</th>
+				<th>In Menu?</th>
+				<th>Get Feedback? </th>
+				<th>Category</th>
+				<th>Operations </th>
+	    </tr>
+	    <% @help_pages.each do |help_page| %>
+	    <tr class="<%= cycle('list_odd', 'list_even') %>">
+	      <td><center><%= help_page.name %></center></td>
+				<td><%= help_page.position %>
+	      <td><%= help_page.in_menu%></td>
+	      <td><%= help_page.get_feedback%></td>
+	      <td><% if help_page.category_id != 0 %><%= Category.find(help_page.category_id).name %><%else %>[None]<% end %></td>
+	      <td>
+	      <center>
+	      <%= link_to image_tag("edit_button.gif", :alt => 'Edit', :title => 'Edit Help Page', :class => "icon", :border => "0"), { :controller => :help_pages, :action => 'edit', :id => help_page.id, :anchor => 'content-padding' } %> 
+	      <%= link_to image_tag("delete_button.gif", :alt => 'Delete', :title => 'Delete Help Page', :class => "icon", :border => "0"), help_page, :confirm => 'Are you sure you want to delete this Help Page?', :method => :delete %>
+				</center>
+	      </td>
+	    </tr>
+	    <% end %>
+	  </table>

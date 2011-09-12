@@ -1,50 +1,42 @@
-<p id="notice"><%= notice %></p>
+<% @adminfloat_links = "#{ link_to 'Edit', edit_help_page_path(@help_page) }
+&nbsp;&nbsp;
+#{ link_to 'Delete', @help_page, :confirm => 'Are you sure you want to delete this Help Page?', :method => :delete }" %>
 
-<p>
-  <b>Category:</b>
-  <%= @help_page.category_id %>
+<%= @help_page.content %>
+
+<br /><br /><br /><br />
+<% if @help_page.get_feedback %>
+<div id="feedback_box">
+<div id="feedback_inner">
+
+<h1>Was this information helpful?</h1>
+<h2>Your input can help us improve Concerto Help.</h2>
+		
+<% form_tag :controller => 'help_pages', :action => 'send_email', :html => { :id => 'feedback_form' } do |f|%>
+
+<p id="feedback_helpful">
+	<label for="email_helpful">Yes</label>
+	<%= radio_button "email", "helpful", "yes" %>
+	
+	<label for="email_helpful">No</label>
+	<%= radio_button "email", "helpful", "no" %>
+</p>
+<p id="feedback_msg">
+	<label for="email_body">What can we do to improve this page?</label>
+	<%= text_area "email", "body", :rows => 8, :cols => 30 %>
+	<br />
+	<label for="email_name">Name: [Optional]</label>
+	<%= text_field "email", "name", :size => 30 %>
+	<br />
+	<label for="email_address">Email: [Optional]</label>
+	<%= text_field "email", "address", :size => 30 %>
 </p>
 
-<p>
-  <b>Name:</b>
-  <%= @help_page.name %>
-</p>
+<%= hidden_field 'email', 'page_name', :value => @help_page.name %>
+<%= hidden_field 'email', 'remote_addr', :value => request.env['REMOTE_ADDR'] %>
 
-<p>
-  <b>Content:</b>
-  <%= @help_page.content %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @help_page.user_id %>
-</p>
-
-<p>
-  <b>Position:</b>
-  <%= @help_page.position %>
-</p>
-
-<p>
-  <b>In menu:</b>
-  <%= @help_page.in_menu %>
-</p>
-
-<p>
-  <b>Get feedback:</b>
-  <%= @help_page.get_feedback %>
-</p>
-
-<p>
-  <b>Short description:</b>
-  <%= @help_page.short_description %>
-</p>
-
-<p>
-  <b>Tags:</b>
-  <%= @help_page.tags %>
-</p>
-
-
-<%= link_to 'Edit', edit_help_page_path(@help_page) %> |
-<%= link_to 'Back', help_pages_path %>
+<input type="submit" value="Submit" class="primary" />
+<% end %>
+</div>
+</div>
+<% end %>

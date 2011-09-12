@@ -1,53 +1,39 @@
-<%= form_for(@help_page) do |f| %>
-  <% if @help_page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@help_page.errors.count, "error") %> prohibited this help_page from being saved:</h2>
+<%= error_messages_for 'help_page' %>
+<fieldset>
+<!--[form:help_page]-->
+<div>
+  <%= f.label :name %>
+  <%= f.text_field 'name'  %>
+</div>
+<div>
+	<%= f.label :category %>
+	<%= select :help_page, "category_id", Category.all.collect {|p| [p.name, p.id] }, {:include_blank => false } %>
+</div>
+<div>
+  <%= f.label :content %>
+  <%= f.text_area 'content', :rows => 120  %>
+</div>
+<div>
+  <%= f.label :in_menu %>
+  <%= f.check_box 'in_menu'  %>
+</div>
+<div>
+  <%= f.label :get_feedback %>
+  <%= f.check_box 'get_feedback'  %>
+</div>
+<div>
+  <%= f.label :position %>
+  <%= f.text_field 'position'  %>
+</div>
+<div>
+	<%= f.label :short_description %>
+	<%= f.text_field :short_description %>
+</div>
+<div>
+	<%= f.label :tags %>
+	<%= f.text_field :tags %>
+</div>
+</fieldset>
+<!--[eoform:help_page]-->
 
-      <ul>
-      <% @help_page.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :position %><br />
-    <%= f.number_field :position %>
-  </div>
-  <div class="field">
-    <%= f.label :in_menu %><br />
-    <%= f.check_box :in_menu %>
-  </div>
-  <div class="field">
-    <%= f.label :get_feedback %><br />
-    <%= f.check_box :get_feedback %>
-  </div>
-  <div class="field">
-    <%= f.label :short_description %><br />
-    <%= f.text_field :short_description %>
-  </div>
-  <div class="field">
-    <%= f.label :tags %><br />
-    <%= f.text_field :tags %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
