@@ -33,7 +33,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(params[:category])
     flash[:notice] = "Category successfully created" if @category.save
-    respond_with(@category)
+    redirect_to categories_path
+    #respond_with(@category)
   end
 
   # PUT /categories/1

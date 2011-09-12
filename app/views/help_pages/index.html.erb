@@ -1,6 +1,6 @@
 <% if current_user && current_user.is_admin? %>
 <div class="adminpage">
-	<p>Help Pages&nbsp;&nbsp;&nbsp;<%= link_to "New Help Page", new_help_page_path %></p>
+	<p>Help Pages&nbsp;&nbsp;&nbsp;<%= link_to "New Help Page", new_help_page_path %> | <%= link_to "New Category", new_category_path %></p>
 </div>	
 <% end %>
 

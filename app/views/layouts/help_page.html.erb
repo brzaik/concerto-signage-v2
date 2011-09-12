@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+ 	   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><%= yield_for_title(:title, controller.controller_name.titleize) %> - Concerto Digital Signage Project</title>
+
+	    <meta name="keywords" content="<%= @meta_keywords %>" />
+		<meta name="description" content="<%= @meta_description %>" />
+		
+		<%= stylesheet_link_tag "application" %>
+		<%= javascript_include_tag "application" %>
+		<%#= javascript_include_tag :ckeditor %>
+		<%= csrf_meta_tag %>
+
+		<!--[if lt IE 9]>
+		<%= javascript_include_tag "html5.js" %>
+		<![endif]-->
+		
+	</head>
+
+	<body>
+
+		<% if flash[:notice] %>
+		<p id="flashblock"><%= flash[:notice] %></p>
+		<% end %>
+		
+		<div id="stripe2" class="help-page-index">
+	    	<div id="stripe1">
+				<div class="wrap">
+					<%= render :partial => 'elements/mainmenu' %>
+	     		</div>
+			</div>
+	      	<div id="stripe2-padding" class="<%= content_for :stripe2padding_classes %>">
+		    	<div id="hp-top" class="wrap"> 
+		    		<div id="hp-title"> 
+		    			<%= image_tag("icons/robot_icon.png", :alt => @help_page.category.name.titleize, :title => @help_page.category.name.titleize )%>
+		    			<h1><%= @help_page.name %></h1> 
+		    			<h2><a href="/help">Help</a> :: <%= link_to @help_page.category.name.titleize, @help_page.category %></h2> 
+		    		</div> 
+		    		<div style="clear:both;"></div> 
+		    		<p id="hp-details"><b>Last modified:</b> <%= @help_page.updated_at.strftime('%l:%M %P on %B %e, %Y') unless @help_page.updated_at.nil?%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Article:</b> <%= @help_page.category.id unless @help_page.category.nil? %>-<%= params[:id] %></p> 
+		    	</div>
+		    </div>
+	    </div>
+	    	
+    	<div id="stripe3">
+			<div class="wrap">
+      			<div id="maincontent">
+        			<div id="mc" class="post-body">
+	
+						<article>
+	  						<%= yield %>
+  						</article>
+							
+        			</div>
+
+					<div class="sb" style="margin-right:0px;">
+
+	        			<div class="sb-item">
+		        			<div class="sb-top">
+		        				<div class="sb-top-padding">
+		        					<h1>Search Concerto Help</h1>
+		        				</div>
+		        			</div>
+		        			<div class="sb-mid">
+		        				<div class="sb-mid-padding">
+		        					&nbsp;
+				        		</div>
+			        		</div>
+			        		<div class="sb-bot">&nbsp;</div>
+		        		</div>
+
+		        		<div class="sb-item">
+		        			<div class="sb-top">
+		        				<div class="sb-top-padding">
+		        					<h1>Also in this Category</h1>
+		        				</div>
+		        			</div>
+		        			<div class="sb-mid">
+		        				<div class="sb-mid-padding">
+									<ul>
+										<% @otherpages.each do |page| %>
+										<li><%= link_to page.name, page %></li>
+										<% end %>
+									</ul>
+				        		</div>
+			        		</div>
+			        		<div class="sb-bot">&nbsp;</div>
+		        		</div>
+
+		        		<div class="sb-item">
+		        			<div class="sb-top">
+		        				<div class="sb-top-padding">
+		        					<h1>Contribute</h1>
+		        				</div>
+		        			</div>
+		        			<div class="sb-mid">
+		        				<div class="sb-mid-padding">
+									<ul>
+										<li><a href="#feedback_box">Send feedback about this page</a></li>
+									</ul>
+				        		</div>
+			        		</div>
+			        		<div class="sb-bot">&nbsp;</div>
+		        		</div>
+
+					</div>
+          			<div style="clear:both;"></div>
+        		</div>
+      		</div>
+		</div>
+      
+      	<div id="stripe4">
+			<div class="wrap">
+				<%= render :partial => 'elements/footer' %>
+        	</div>
+      	</div>
+		<%#= render :partial => 'layouts/stats' %>
+  	</body>
+</html>

@@ -1,3 +1,7 @@
+<% content_for :head do %>
+	<%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<% end %>
+
 <%= form_for(@help_page) do |f| %>
 	
 	<fieldset>
@@ -11,6 +15,12 @@
 			<%= f.label :category_id, "Category" %>
 			<div class="inputs">
 				<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }  %>
+			</div>
+  		</div>
+		<div class="field">
+			<%= f.label :content, "Page Content" %>
+			<div class="inputs">
+				<%= f.cktext_area :content, :width => '96%' %>
 			</div>
   		</div>
 		<div class="field">

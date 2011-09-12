@@ -18,6 +18,18 @@
 				<%= f.text_field :name %>
 			</div>
   		</div>
+		<div class="field">
+    		<%= f.label :description, "Description (Optional)" %>
+    		<div class="inputs">
+				<%= f.text_area :description %>
+			</div>
+  		</div>
+		<div class="field">
+    		<%= f.label :is_help_page, "Is intended for help pages?" %>
+    		<div class="inputs">
+				<%= f.check_box :is_help_page %>
+			</div>
+  		</div>
   
   		<div class="actions">
     		<%= f.submit %>

@@ -1,9 +1,4 @@
-<% @adminfloat_links = "#{ link_to 'Show', @help_page }
-&nbsp;&nbsp;
-#{ link_to 'Delete', @help_page, :confirm => 'Are you sure you want to delete this Help Page?', :method => :delete }" %>
+<h1>Edit Help Page "<%= @help_page.name %>"</h1>
 
-<% form_for(@help_page) do |f| %>
-  <%= render :partial => 'form' , :locals=>{:f => f}%>
-  <%= submit_tag 'Save' %>
-<% end %>
+<%= render 'form' %>
 

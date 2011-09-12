@@ -24,12 +24,12 @@ class HelpPagesController < ApplicationController
   # GET /help_pages/1.json
   def show
     @help_page = HelpPage.find(params[:id])
-
+    @new_contact = Contact.new
     @category = @help_page.category
     @otherpages = @category.help_pages
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => "help_page" }# show.html.erb
       format.json { render json: @help_page }
     end
   end

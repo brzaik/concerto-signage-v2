@@ -1,3 +1,7 @@
+<% content_for :head do %>
+	<%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<% end %>
+
 <%= form_for([@column, @block]) do |f| %>
   	<%= f.error_messages %>
 	
