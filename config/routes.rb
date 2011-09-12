@@ -1,5 +1,6 @@
 ConcOrg2::Application.routes.draw do
-  
+
+  match "help_pages/send_email", :to => "help_pages#send_email"  
   resources :help_pages
 
   resources :blog_categories
@@ -51,8 +52,8 @@ ConcOrg2::Application.routes.draw do
     resources :columns
   end
 
-	match 'frontpage' => 'frontpage#index'
+  match 'frontpage' => 'frontpage#index'
 	
-	resources :blog, :controller => 'blog_posts'
+  resources :blog, :controller => 'blog_posts'
 
 end

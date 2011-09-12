@@ -7,17 +7,6 @@ class HelpPagesController < ApplicationController
 		redirect_to :controller => 'help_pages'
 	end
 	
-  def auto_complete_for_search_query
-    @help_pages = HelpPage.find_with_ferret(params["search"]["query"]+"*", {:limit => 5})
-    render :partial => "search_results"
-  end
-  
-  def search_results_inpage
-  	@help_pages = HelpPage.find_with_ferret(params[:id] + "*")
-  	@title = 'Search Concerto Help'
-  	render :layout => 'application'
-  end
-  
   # GET /help_pages
   # GET /help_pages.json
   def index
@@ -38,7 +27,6 @@ class HelpPagesController < ApplicationController
 
     @category = @help_page.category
     @otherpages = @category.help_pages
-    @cat_icon = @category.picture
 
     respond_to do |format|
       format.html # show.html.erb
