@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @columns = @page.columns.order("position ASC")
+    @new_contact = Contact.new
     respond_with(@page)
   end
 

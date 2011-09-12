@@ -1,0 +1,32 @@
+<h1>Was this page helpful?</h1>
+
+<%= form_for(contact, :url => { :controller => "contacts", :action => "create", :controller_name => controller_name, :page_slug => params[:id] }) do |f| %>
+	<%= f.error_messages %>
+
+  	<fieldset>
+  		<div class="field">
+    		<%= f.label :body, "What can we do to improve this page?" %>
+    		<div class="inputs">
+				<%= f.text_area :body %>
+			</div>
+  		</div>
+
+		<div class="field">
+    		<%= f.label :name, "Name (Optional)" %>
+    		<div class="inputs">
+				<%= f.text_field :name %>
+			</div>
+  		</div>
+  		<div class="field">
+    		<%= f.label :email, "Email (Optional)" %>
+    		<div class="inputs">
+				<%= f.text_field :email %>
+			</div>
+  		</div>
+		
+  		<div class="actions">
+    		<%= f.submit "Leave Feedback" %>
+  		</div>
+	</fieldset>
+	
+<% end %>

@@ -16,21 +16,17 @@ class ContactsController < ApplicationController
     respond_with(@contact)
   end
 
-  # GET /contacts/new
-  # GET /contacts/new.xml
-  def new
-    @contact = Contact.new
-    respond_with(@contact)
-  end
-
 
   # POST /contacts
   # POST /contacts.xml
   def create
     @contact = Contact.new(params[:contact])
+    @contact.controller_name = params[:controller_name]
+    @contact.page_slug = params[:page_slug]
     flash[:notice] = "Contact successfully created" if @contact.save
     ContactMailer.contact_confirmation(@contact).deliver
-    respond_with(@contact)
+    redirect_to :back
+    #respond_with(@contact)
   end
 
   # DELETE /contacts/1
