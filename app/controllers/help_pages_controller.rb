@@ -1,5 +1,5 @@
 class HelpPagesController < ApplicationController
-	before_filter :require_login, :only => [:new, :edit, :create, :update, :destroy]
+	before_filter :require_admin, :only => [:new, :edit, :create, :update, :destroy]
 	protect_from_forgery :only => [:new, :edit, :create, :update, :destroy]
 	
 	def send_email
