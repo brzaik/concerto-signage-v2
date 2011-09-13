@@ -49,7 +49,7 @@
   						<div class="sb-mid-padding">
 							<% if @found_blog && @rss && @rss.items.size > 0 %>
 								<% @rss.items[(0..5)].each do |rss| %>
-								<p><%= link_to rss.title, rss.link %><br /><%= truncate(rss.description, :length => 150) %>...</p>
+								<p><%= link_to rss.title, rss.link %><br /><%= truncate(rss.description, :length => 150) %></p>
 								<% end %>
 							<% elsif @rss && @rss.items.size == 0 %>
 							<h3><i>No posts to display</i></h3>
