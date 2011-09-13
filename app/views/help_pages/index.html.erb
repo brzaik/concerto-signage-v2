@@ -18,7 +18,7 @@
 					<p><%= cat.description %></p>
 					<ul>
 						<% cat.help_pages.each do |help_page| %>
-							<% if help_page.in_menu || logged_in?%>
+							<% if help_page.in_menu || current_user %>
 								<li id="help_page_<%=help_page.id%>"><%= link_to help_page.name, :controller => 'help_pages', :action => 'show', :id => help_page.id %><%= " [hidden]" unless help_page.in_menu %></li>
 							<% end %>
 						<% end %>
