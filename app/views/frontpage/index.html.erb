@@ -47,6 +47,15 @@
   					</div>
   					<div class="sb-mid">
   						<div class="sb-mid-padding">
+							<% if @found_blog %>
+							<ul>
+								<% @rss.items[(0..5)].each do |rss| %>
+								<li><%= link_to rss.title, rss.link %>
+								<% end %>
+							</ul>
+							<% else %>
+							<h2>No posts to display</h2>
+							<% end %>
 	        			</div>
       				</div>
       				<div class="sb-bot">&nbsp;</div>
