@@ -47,14 +47,16 @@
   					</div>
   					<div class="sb-mid">
   						<div class="sb-mid-padding">
-							<% if @found_blog %>
+							<% if @found_blog && @rss && @rss.items.size > 0 %>
 							<ul>
 								<% @rss.items[(0..5)].each do |rss| %>
 								<li><%= link_to rss.title, rss.link %>
 								<% end %>
 							</ul>
+							<% elsif @rss && @rss.items.size == 0 %>
+							<h3><i>No posts to display</i></h3>
 							<% else %>
-							<h2>No posts to display</h2>
+							<h3><i>Problem retrieving posts</i></h3>
 							<% end %>
 	        			</div>
       				</div>
