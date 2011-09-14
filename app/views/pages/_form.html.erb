@@ -20,6 +20,12 @@
 				<%= f.text_field :short_description %>
 			</div>
   		</div>
+                <div class="field">
+                        <%= f.label :short_description %>
+                        <div class="inputs">
+                          <%= f.select :ckeditor_asset_id, Ckeditor::Asset.all.collect {|c| [ c.data_file_name, c.id ] }  %>
+                        </div>
+                </div>
   		<div class="actions">
     		<%= f.submit %>
   		</div>
