@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+<div id="flashblock">
+	<div class="floatleft">
+		<h3><span class="smaller">>></span> <%= flash[:notice] %></h3>
+	</div>
+	<div class="floatright">
+		<h3><%= link_to "kthxbai", "#", :id => "flashend" %></h3>
+	</div>
+	<div class="clear"></div>
+</div>
+<% end %>

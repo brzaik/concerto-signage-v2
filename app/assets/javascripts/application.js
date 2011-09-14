@@ -10,29 +10,33 @@
 
 
 $(document).ready(function () {
-	$("#search-jQuery").css({'display' : 'block'});
-	$("#search_query").bind('keyup',function () {
-		$.ajax({
-			type: "POST",
-			cache: true,
-			url: baseURL + "/help_pages/auto_complete_for_search_query",
-			data: $(this),
-			success: function(msg) {
-				$("#search_query_auto_complete").show();
-				$("#search_query_auto_complete").html(msg);
-			}
-		});
+	$('a#flashend').click(function(e) {
+		$('#flashblock').slideUp();
+		e.preventDefault();
 	});
-
-	$('#searchbox'.parent).click(function() {
-		$("#search_query_auto_complete").hide();
-	});
-	
-	// Controls expanding/collapsing OL elements:
-//	$("#mc ol div").hide();
-  $("#mc ol a").click(function(){
-    $(this).parent().next("div").slideToggle("fast");
-  });
+// 	$("#search-jQuery").css({'display' : 'block'});
+// 	$("#search_query").bind('keyup',function () {
+// 		$.ajax({
+// 			type: "POST",
+// 			cache: true,
+// 			url: baseURL + "/help_pages/auto_complete_for_search_query",
+// 			data: $(this),
+// 			success: function(msg) {
+// 				$("#search_query_auto_complete").show();
+// 				$("#search_query_auto_complete").html(msg);
+// 			}
+// 		});
+// 	});
+// 
+// 	$('#searchbox'.parent).click(function() {
+// 		$("#search_query_auto_complete").hide();
+// 	});
+// 	
+// 	// Controls expanding/collapsing OL elements:
+// //	$("#mc ol div").hide();
+//   $("#mc ol a").click(function(){
+//     $(this).parent().next("div").slideToggle("fast");
+//   });
 
 });
 

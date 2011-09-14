@@ -1,10 +1,4 @@
 ConcOrg2::Application.routes.draw do
-
-  match "help_pages/send_email", :to => "help_pages#send_email"  
-  resources :help_pages
-
-  resources :categories
-
   root :to => "frontpage#index"
 	
 	# named routes for major site pages:
@@ -17,7 +11,13 @@ ConcOrg2::Application.routes.draw do
 	match "contact", :to => "contacts#new", :as => "contact"
 	match "login", :to => "user_sessions#new", :as => "login"
 	match "logout", :to => "user_sessions#destroy", :as => "logout"
+	match "register", :to => "users#new", :as => "signup"
 	
+	match "help_pages/send_email", :to => "help_pages#send_email"  
+  resources :help_pages
+
+  resources :categories
+  
 	resources :contacts
 	
 	resources :blocks do

@@ -20,9 +20,7 @@
 
 	<body<% if controller.controller_name == "pages" && controller.action_name == "show" %> class="category_<%= @page.category.name.downcase %>"<% end %>>
 
-		<% if flash[:notice] %>
-		<p id="flashblock"><%= flash[:notice] %></p>
-		<% end %>
+		<%= render :partial => "elements/flashblock" %>
 		
 		<% if controller.controller_name == "pages" && controller.action_name == "show" && File.exists?(Rails.root.to_s + '/app/views/category_includes/' + '_' + @page.category.name.downcase + '.html.erb') %>
 		

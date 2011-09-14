@@ -21,9 +21,7 @@
 
 	<body>
 
-		<% if flash[:notice] %>
-		<p id="flashblock"><%= flash[:notice] %></p>
-		<% end %>
+		<%= render :partial => "elements/flashblock" %>
 		
     	<div id="stripe2" class="<%= content_for :stripe2_classes %>">
 	    	<div id="stripe1">

@@ -20,9 +20,7 @@
 
 	<body>
 
-		<% if flash[:notice] %>
-		<p id="flashblock"><%= flash[:notice] %></p>
-		<% end %>
+		<%= render :partial => "elements/flashblock" %>
 		
 		<%= yield %>
 
