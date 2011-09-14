@@ -21,7 +21,7 @@ class ColumnsController < ApplicationController
   def new
     @page = Page.find(params[:page_id]) 
     @column = @page.columns.new
-    respond_with(@column)
+    respond_with(@page)
   end
 
   # GET /columns/1/edit
@@ -43,7 +43,8 @@ class ColumnsController < ApplicationController
   def update
     @column = Column.find(params[:id])
     @column.update_attributes(params[:column])
-    respond_with(@column)
+    @page = @column.page
+    respond_with(@page)
   end
 
   # DELETE /columns/1
