@@ -21,7 +21,8 @@ class BlocksController < ApplicationController
   def new
     @column = Column.find(params[:column_id])
     @block = @column.blocks.new
-    respond_with(@block)
+    @page = @block.column.page
+    respond_with(@page)
   end
 
   # GET /blocks/1/edit
@@ -44,7 +45,8 @@ class BlocksController < ApplicationController
   def update
     @block = Block.find(params[:id])
     @block.update_attributes(params[:block])
-    respond_with(@block)
+    @page = @block.column.page
+    respond_with(@page)
   end
 
   # DELETE /blocks/1
