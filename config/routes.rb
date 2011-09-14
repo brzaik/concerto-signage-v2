@@ -3,8 +3,6 @@ ConcOrg2::Application.routes.draw do
   match "help_pages/send_email", :to => "help_pages#send_email"  
   resources :help_pages
 
-  resources :blog_categories
-
   resources :categories
 
   root :to => "frontpage#index"
@@ -38,12 +36,6 @@ ConcOrg2::Application.routes.draw do
 	  end
 	end
 
-  resources :blog_posts do
-    resources :blog_comments, :member => { :moderate => :get }
-  end
-  
-  resources :blog_comments, :member => { :moderate => :get }
-
   resources :user_sessions
 
   resources :users
@@ -53,7 +45,5 @@ ConcOrg2::Application.routes.draw do
   end
 
   match 'frontpage' => 'frontpage#index'
-	
-  resources :blog, :controller => 'blog_posts'
 
 end
