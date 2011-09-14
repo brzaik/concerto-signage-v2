@@ -5,7 +5,7 @@
   		<div class="field">
 			<%= f.label :category_id %>
 			<div class="inputs">
-				<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] }  %>
+				<%= f.select :category_id, Category.normal_page_categories.collect {|c| [ c.name, c.id ] }  %>
 			</div>
   		</div>
   		<div class="field">
