@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     else 
       @bannerheight = Paperclip::Geometry.from_file(@bannerimg).height
       @bannerimg_path = view_context.image_path(@bannerimg.url)
-      @bg_css = "background:url(" + @bannerimg_path + ") bottom center no-repeat; height:" + @bannerheight.to_s + "px;"
+      @bg_css = "background-image:url(" + @bannerimg_path + "); background-position: bottom center; background-repeat: no-repeat; height:" + @bannerheight.to_s + "px;"
     end   
     
     render :layout => "pageshow"
