@@ -14,7 +14,12 @@ ConcOrg2::Application.routes.draw do
 	match "register", :to => "users#new", :as => "signup"
 	
 	match "help_pages/send_email", :to => "help_pages#send_email"  
-  resources :help_pages
+  resources :help_pages do
+    collection do
+      get :search
+      post :search
+    end
+  end
 
   resources :categories
   

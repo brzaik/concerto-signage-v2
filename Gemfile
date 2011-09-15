@@ -21,3 +21,5 @@ gem "paperclip"
 gem "acts_as_list"
 gem "friendly_id"
 #gem 'will_paginate', '~> 3.0.beta'
+
+gem "tanker"

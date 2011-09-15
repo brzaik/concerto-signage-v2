@@ -100,4 +100,12 @@ class HelpPagesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def search
+    @help_pages = HelpPage.search_tank(params[:query], :paginate => false)
+    respond_to do |format|
+      format.html
+    end
+  end
+
 end
