@@ -15,7 +15,18 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @columns = @page.columns.order("position ASC")
     @new_contact = Contact.new
-    respond_with(@page)
+    
+    begin
+      @bannerimg = Ckeditor::Picture.find(@page.ckeditor_asset_id)
+    rescue
+      @bg_css = "background:none;"
+    else 
+      @bannerheight = Paperclip::Geometry.from_file(@bannerimg).height
+      @bannerimg_path = view_context.image_path(@bannerimg.url)
+      @bg_css = "background:url(" + @bannerimg_path + ") bottom center no-repeat; height:" + @bannerheight.to_s + "px;"
+    end   
+    
+    render :layout => "pageshow"
   end
 
   # GET /pages/new
