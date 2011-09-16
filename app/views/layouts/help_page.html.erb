@@ -62,7 +62,10 @@
 		        			</div>
 		        			<div class="sb-mid">
 		        				<div class="sb-mid-padding">
-		        					<input id="search_query" class="index-search" name="search[query]" size="30" type="text" placeholder="Enter search text">
+		        					<%= form_tag search_help_pages_path, :method => :get, :id => "search_form" do %>
+		        						<%= text_field_tag :query, :class => "index-search" %>
+		        						<!--<input id="search_query" class="index-search" name="search[query]" size="30" type="text" placeholder="Enter search text">-->
+		        					<% end %>
 				        		</div>
 			        		</div>
 			        		<div class="sb-bot">&nbsp;</div>
