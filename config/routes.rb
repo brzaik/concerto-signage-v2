@@ -13,6 +13,7 @@ ConcOrg2::Application.routes.draw do
 	match "logout", :to => "user_sessions#destroy", :as => "logout"
 	match "register", :to => "users#new", :as => "signup"
 	
+	match "help", :to => "help_pages#index"
 	match "help_pages/send_email", :to => "help_pages#send_email"  
   resources :help_pages do
     collection do

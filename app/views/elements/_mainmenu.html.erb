@@ -3,7 +3,7 @@
 	        	<ul id="mainmenu">
 		          <li<% if controller.controller_name == 'pages' and params[:id] == 'overview' %> class="selected"<% end %>><%= link_to 'Overview', "/overview" %></li>
 		          <li class="sm<% if controller.controller_name == 'pages' and params[:id] == 'demo' %> selected<% end %>"><%= link_to 'Demo', "/demo" %></li>
-		          <li class="sm<% if controller.controller_name == 'help_pages' or controller.controller_name == 'categories' %> selected<% end %>"><%= link_to 'Help', help_pages_path %></li>
+		          <li class="sm<% if controller.controller_name == 'help_pages' or controller.controller_name == 'categories' %> selected<% end %>"><%= link_to 'Help', "/help" %></li>
 		          <li class="sm"><a href="http://groups.google.com/group/concerto-digital-signage" target="_blank">Forum</a></li>
 		          <li class="sm"><a href="/blog">Blog</a></li>
 		          <li class="sm<% if controller.controller_name == 'pages' and params[:id] == 'deploy' %> selected<% end %>"><%= link_to 'Deploy', "/deploy" %></li>

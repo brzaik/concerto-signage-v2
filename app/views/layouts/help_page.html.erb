@@ -10,6 +10,29 @@
 		<%= stylesheet_link_tag "application" %>
 		<%= javascript_include_tag "application" %>
 		<%#= javascript_include_tag :ckeditor %>
+		
+		<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js' type='text/javascript'></script>
+		<script src='https://raw.github.com/flaptor/indextank-jquery/master/jquery.indextank.ize.js' type='text/javascript'></script>
+		<script src='https://raw.github.com/flaptor/indextank-jquery/master/jquery.indextank.autocomplete.js' type='text/javascript'></script> 
+		<link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/themes/flick/jquery-ui.css' rel='stylesheet'>
+
+		<script type='text/javascript'> 
+			var publicApiUrl = "http://8k9wf.api.indextank.com";
+			var indexName = "concerto_signage";
+		</script>
+		
+		<script type='text/javascript'>
+
+		$(document).ready(function(){
+		    // let the form be 'indextank-aware'
+		    $("#search_form").indextank_Ize(publicApiUrl, indexName);
+		    // let the query box have autocomplete
+		    $("#query").indextank_Autocomplete();
+		});
+
+
+		</script>
+		
 		<%= csrf_meta_tag %>
 
 		<!--[if lt IE 9]>
@@ -63,8 +86,7 @@
 		        			<div class="sb-mid">
 		        				<div class="sb-mid-padding">
 		        					<%= form_tag search_help_pages_path, :method => :get, :id => "search_form" do %>
-		        						<%= text_field_tag :query, :class => "index-search" %>
-		        						<!--<input id="search_query" class="index-search" name="search[query]" size="30" type="text" placeholder="Enter search text">-->
+		        						<%= text_field_tag :query, nil, { :class => "index-search" } %>
 		        					<% end %>
 				        		</div>
 			        		</div>
