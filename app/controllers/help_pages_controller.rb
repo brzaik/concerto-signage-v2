@@ -102,7 +102,9 @@ class HelpPagesController < ApplicationController
   end
 
   def search
-    @help_pages = HelpPage.search_tank(params[:query], :paginate => false)
+#    , :snippets => [:name, :content]
+    @help_pages = HelpPage.search_tank(params[:query], :snippets => [:content], :fetch => [:name], :paginate => false)
+    
     respond_to do |format|
       format.html
     end
