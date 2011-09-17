@@ -15,7 +15,7 @@ class HelpPagesController < ApplicationController
     @title = 'Help Center'
         
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => "help_page" } # index.html.erb
       format.json { render json: @categories }
     end
   end

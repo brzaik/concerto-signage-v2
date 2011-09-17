@@ -44,13 +44,14 @@
 
 		<%= render :partial => "elements/flashblock" %>
 		
+		<% if controller.action_name == "show" %>
 		<div id="stripe2" class="help-page-index">
 	    	<div id="stripe1">
 				<div class="wrap">
 					<%= render :partial => 'elements/mainmenu' %>
 	     		</div>
 			</div>
-	      	<div id="stripe2-padding" class="<%= content_for :stripe2padding_classes %>">
+	      	<div id="stripe2-padding">
 		    	<div id="hp-top" class="wrap"> 
 		    		<div id="hp-title"> 
 		    			<%= image_tag("icons/robot_icon.png", :alt => @help_page.category.name.titleize, :title => @help_page.category.name.titleize )%>
@@ -62,11 +63,31 @@
 		    	</div>
 		    </div>
 	    </div>
+		<% else # case of index action %>
+		<div id="stripe2" class="help-page-index">
+	    	<div id="stripe1">
+				<div class="wrap">
+					<%= render :partial => 'elements/mainmenu' %>
+	     		</div>
+			</div>
+	      	<div id="stripe2-padding" class="help-page-home">
+				<div class="wrap">
+					<br /><br /><br /><br />
+    				<div id="searchbox">
+    					<div id="searchbox-padding">
+    						<h3>Search Concerto Help</h3>
+    						<%= render :partial => "help_pages/search_pane" %>
+    					</div>
+    				</div>
+				</div>
+		    </div>
+	    </div>
+		<% end %>
 	    	
     	<div id="stripe3">
 			<div class="wrap">
       			<div id="maincontent">
-        			<div id="mc" class="post-body">
+        			<div id="mc" <% if controller.action_name == "show" %>class="post-body"<% else %>style="width:100%;"<% end %>>
 	
 						<article>
 	  						<%= yield %>
@@ -74,6 +95,7 @@
 							
         			</div>
 
+					<% if controller.action_name == "show" %>
 					<div class="sb" style="margin-right:0px;">
 
 	        			<div class="sb-item">
@@ -84,9 +106,7 @@
 		        			</div>
 		        			<div class="sb-mid">
 		        				<div class="sb-mid-padding">
-		        					<%= form_tag search_help_pages_path, :method => :get, :id => "search_form" do %>
-		        						<%= text_field_tag :query, nil, { :class => "index-search" } %>
-		        					<% end %>
+		        					<%= render :partial => "help_pages/search_pane" %>
 				        		</div>
 			        		</div>
 			        		<div class="sb-bot">&nbsp;</div>
@@ -127,7 +147,10 @@
 		        		</div>
 
 					</div>
-          			<div style="clear:both;"></div>
+					<% end %>
+					
+					<div style="clear:both;"></div>
+					
         		</div>
       		</div>
 		</div>
