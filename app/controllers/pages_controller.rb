@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin, :only => [:new, :edit, :create, :update, :destroy]   
+  before_filter :require_admin, :except => [:show]   
     
   # GET /pages
   # GET /pages.xml
@@ -53,7 +53,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.xml
   def update
     @page = Page.find(params[:id])
-    @page.update_attributes(params[:page])
+    flash[:notice] = "Page successfully updated" if @page.update_attributes(params[:page])
     respond_with(@page)
   end
 
@@ -61,7 +61,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1.xml
   def destroy
     @page = Page.find(params[:id])
-    @page.destroy
-    respond_with(@page)
+    flash[:notice] = "Page successfully deleted" if @page.destroy
+    redirect_to pages_path
   end
 end

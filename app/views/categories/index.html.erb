@@ -1,21 +1,11 @@
-<h1>Listing categories</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+<hgroup>
+	<h1>Categories List</h1>
+	<% if current_user && current_user.is_admin? %>
+	<h2><%= link_to "Create New Category", new_category_path %></h2>
+	<% end %>
+</hgroup>
+<ul>
+	<% @categories.each do |category| %>
+	<li><%= category.name %> <% if current_user && current_user.is_admin? %>(<%= link_to "Edit Category", edit_category_path(category) %>, <%= link_to "Delete", category, :confirm => 'Are you sure you want to delete this category?', :method => :delete %>)<% end %></li>
+	<% end %>
+</ul>

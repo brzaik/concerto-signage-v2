@@ -1,19 +1,12 @@
 class CategoriesController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin, :only => [:new, :edit, :create, :update, :destroy]   
+  before_filter :require_admin
   
   # GET /categories
   # GET /categories.xml
   def index
     @categories = Category.all
     respond_with(@categories)
-  end
-
-  # GET /categories/1
-  # GET /categories/1.xml
-  def show
-    @category = Category.find(params[:id])
-    respond_with(@category)
   end
 
   # GET /categories/new
@@ -34,21 +27,21 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     flash[:notice] = "Category successfully created" if @category.save
     redirect_to categories_path
-    #respond_with(@category)
   end
 
   # PUT /categories/1
   # PUT /categories/1.xml
   def update
     @category = Category.find(params[:id])
-    @category.update_attributes(params[:category])
-    respond_with(@category)
+    flash[:notice] = "Category successfully updated" if @category.update_attributes(params[:category])
+    redirect_to categories_path
   end
 
   # DELETE /categories/1
   # DELETE /categories/1.xml
   def destroy
-    @category = Category.find(params[:id]).destroy
-    respond_with(@category)
+    @category = Category.find(params[:id])
+    flash[:notice] = "Category successfully deleted" if @category.destroy
+    redirect_to categories_path
   end
 end

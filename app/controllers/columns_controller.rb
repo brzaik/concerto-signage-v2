@@ -1,19 +1,12 @@
 class ColumnsController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin, :only => [:sort, :new, :edit, :create, :update, :destroy, :move_column_higher, :move_column_lower]     
+  before_filter :require_admin
   
   # GET /columns
   # GET /columns.xml
   def index
     @columns = Column.all
     respond_with(@columns)
-  end
-
-  # GET /columns/1
-  # GET /columns/1.xml
-  def show
-    @column = Column.find(params[:id])
-    respond_with(@column)
   end
 
   # GET /columns/new
@@ -42,7 +35,7 @@ class ColumnsController < ApplicationController
   # PUT /columns/1.xml
   def update
     @column = Column.find(params[:id])
-    @column.update_attributes(params[:column])
+    flash[:notice] = "Column successfully created" if @column.update_attributes(params[:column])
     @page = @column.page
     respond_with(@page)
   end
@@ -52,7 +45,7 @@ class ColumnsController < ApplicationController
   def destroy
     @column = Column.find(params[:id])
     @page = @column.page
-    @column.destroy
+    flash[:notice] = "Column successfully deleted" if @column.destroy
     respond_with(@page)
   end
   

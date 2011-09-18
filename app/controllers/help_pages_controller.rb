@@ -1,5 +1,5 @@
 class HelpPagesController < ApplicationController
-	before_filter :require_admin, :only => [:new, :edit, :create, :update, :destroy]
+	before_filter :require_admin, :except => [:index, :show, :search]
 	protect_from_forgery :only => [:new, :edit, :create, :update, :destroy]
 	
 	def send_email
@@ -63,7 +63,7 @@ class HelpPagesController < ApplicationController
 
     respond_to do |format|
       if @help_page.save
-        flash[:notice] = 'HelpPage was successfully created.'
+        flash[:notice] = 'Help page was successfully created'
         format.html { redirect_to(@help_page) }
         format.xml  { render :xml => @help_page, :status => :created, :location => @help_page }
       else
@@ -80,6 +80,7 @@ class HelpPagesController < ApplicationController
 
     respond_to do |format|
       if @help_page.update_attributes(params[:help_page])
+        flash[:notice] = 'Help page was successfully updated'
         format.html { redirect_to @help_page, notice: 'Help page was successfully updated.' }
         format.json { head :ok }
       else
@@ -93,10 +94,10 @@ class HelpPagesController < ApplicationController
   # DELETE /help_pages/1.json
   def destroy
     @help_page = HelpPage.find(params[:id])
-    @help_page.destroy
+    flash[:notice] = 'Help page was successfully deleted' if @help_page.destroy
 
     respond_to do |format|
-      format.html { redirect_to help_pages_url }
+      format.html { redirect_to help_pages_path }
       format.json { head :ok }
     end
   end
