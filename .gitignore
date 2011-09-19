@@ -12,4 +12,5 @@ config/initializers/recaptcha.rb
 app/mailers/contact_mailer.rb
 config/initializers/secret_token.rb
 public/ckeditor_assets/
+public/assets/
 config/initializers/tanker.rb
