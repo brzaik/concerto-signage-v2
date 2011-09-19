@@ -1,1 +1,27 @@
-Gallia est omnis diuisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam, qui ipsorum lingua Celtae, nostra Galli appellantur. hi omnes lingua, institutis, legibus inter se differunt. Gallos ab Aquitanis Garumna flumen, a Belgis Matrona et Sequana diuidit. horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate prouinciae longissime absunt, minimeque ad eos mercatores saepe commeant, atque ea quae ad effeminandos animos pertinent important.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>Hi everyone,</p>
+    <% if @contact.name %>
+    <p>
+      We've just received some feedback from concerto-signage.org.
+      Name: <%= @contact.name %> <% if @contact.email %>(<%= @contact.email%>)<% end %><br/>
+    </p>
+    <% end %>
+
+    <p>
+      Here's what they had to say: <%= @contact.body %>.<br/>
+    </p>
+    
+    <% if @contact.was_helpful? %>
+    <p>
+      They found this page helpful: <a href="http://concerto-signage.org/<%=@contact.controller_name%>/<%=@contact.page_slug%>"
+    </p>
+    <% end %>
+
+
+  </body>
+</html>
