@@ -52,4 +52,9 @@ ConcOrg2::Application.routes.draw do
 
   match 'frontpage' => 'frontpage#index'
 
+
+  # 301 Redirects for the old site
+  match 'view/home', :to => redirect('/')
+  match 'view/:slug', :to => redirect('/%{slug}')
+
 end
