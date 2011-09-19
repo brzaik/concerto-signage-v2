@@ -1,18 +1,17 @@
 <p><%= link_to 'Back to Last Page', :back %></p>
 
 <div id="search_results">
-	<% count = 0 %>
 	<h1>Results for query <b><%= params[:query] %></b></h1>
 	
-	<% for help_page in @help_pages %>
-	<% count += 1 %>
+	<% @help_page_results.each_with_index do |result, count| %>
+        <% help_page = HelpPage.find(result.id) %>
 	<div class="result">
 		<div class="num">
-			<h1><%= count %></h1>
+			<h1><%= count+1 %></h1>
 		</div>
 		<div class="line">
 			<h3><%= link_to help_page.name, help_page %></h3>
-			<p><%=raw help_page.content_snippet %></p>
+			<p><%= raw result.content_snippet %></p>
 		</div>
 		<div class="clear"></div>
 	</div>
