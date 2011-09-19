@@ -53,5 +53,6 @@ ConcOrg2::Application.routes.draw do
 
   # 301 Redirects for the old site
   match 'view/home', :to => redirect('/')
+  match 'view/supporters', :to => redirect('/pages/supporters')
   match 'view/:slug', :to => redirect('/%{slug}')
 end
