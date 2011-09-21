@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin, :except => [:show]   
+  before_filter :authenticate_user!, :except => [:show]   
     
   # GET /pages
   # GET /pages.xml

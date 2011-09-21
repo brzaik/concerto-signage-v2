@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-	acts_as_authentic
-	has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
-	has_many :blog_posts
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :recoverable, :rememberable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :is_admin
 end
+

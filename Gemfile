@@ -23,3 +23,7 @@ gem "friendly_id"
 #gem 'will_paginate', '~> 3.0.beta'
 
 gem "tanker"
+
+gem "recaptcha", :require => "recaptcha/rails"
+
+gem "devise"
