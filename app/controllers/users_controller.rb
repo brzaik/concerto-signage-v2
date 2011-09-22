@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
   respond_to :html, :xml, :json
-  #before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update, :destroy, :new, :create] 
-  before_filter :require_admin, :only => [:index]
+  before_filter :authenticate_user!
   
   # GET /users
   # GET /users.xml
@@ -14,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.xml
   def show
-    if params[:id] != current_user.id && current_user.is_admin == false
+    if !current_user && params[:id] != current_user.id && current_user.is_admin == false
     	raise "You are not authorized to access this function"
     end
     @user = User.find(params[:id])

@@ -1,5 +1,5 @@
 class HelpPagesController < ApplicationController
-	before_filter :require_admin, :except => [:index, :show, :search]
+	before_filter :authenticate_user!, :except => [:index, :show, :search]
 	protect_from_forgery :only => [:new, :edit, :create, :update, :destroy]
 	
 	def send_email

@@ -1,6 +1,6 @@
 class ColumnsController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin
+  before_filter :authenticate_user!
   
   # GET /columns
   # GET /columns.xml

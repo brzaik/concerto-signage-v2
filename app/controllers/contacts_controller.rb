@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   respond_to :html, :xml, :json
-  before_filter :require_admin, :only => [:index, :destroy]   
+  before_filter :authenticate_user!, :only => [:index, :destroy]   
   	
   # GET /contacts
   # GET /contacts.xml
@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     @contact.controller_name = params[:controller_name]
     @contact.page_slug = params[:page_slug]
-    flash[:notice] = "Contact successfully created" if @contact.save
+    flash[:notice] = "Contact successfully created" if @contact.save && verify_recaptcha(:model => @contact, :message => "CAPTCHA Error")
     ContactMailer.contact_confirmation(@contact).deliver
     redirect_to :back
     #respond_with(@contact)
