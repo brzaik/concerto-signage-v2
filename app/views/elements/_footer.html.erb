@@ -13,7 +13,7 @@
 	<div style="float:right; width:28%; text-align:right;">
 		<% if user_signed_in? %>
 	  	  <p class="small">Welcome <%= current_user.name %>!</p>
-		  <p class="small"><%#= link_to "Edit Account", edit_user_path(current_user) %> | <%= link_to 'Logout', destroy_user_session_path, :confirm => 'Are you sure?' %></p>
+		  <p class="small"><%= link_to "Edit Account", edit_user_path(current_user) %> | <%= link_to 'Logout', destroy_user_session_path, :confirm => 'Are you sure?' %></p>
 		<% else %>
 		  <p class="small"><%= link_to 'Site Login', new_user_session_path %></p>
 		<% end %>

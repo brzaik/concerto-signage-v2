@@ -1,5 +1,6 @@
 ConcOrg2::Application.routes.draw do
   devise_for :users
+  resources :users
 
   root :to => "frontpage#index"
 	
@@ -38,10 +39,6 @@ ConcOrg2::Application.routes.draw do
       get :move_column_lower
     end
   end
-
-  resources :user_sessions
-
-  resources :users
 
   resources :pages do
     resources :columns
