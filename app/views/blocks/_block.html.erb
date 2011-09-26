@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block<% if current_user && current_user.is_admin? %> admin<% end %>">
 	<% if current_user && current_user.is_admin? %>
 	<div class="adminblock">
 		<p><%= block.name.titleize %>&nbsp;&nbsp;&nbsp;<%= link_to move_block_higher_block_path(block) do %>&uarr;<% end %> | <%= link_to  move_block_lower_block_path(block) do %>&darr;<% end %> | <%= link_to "Edit", edit_block_path(block) %> | <%= link_to "Del", block, :confirm => 'Are you sure you want to delete this block?', :method => :delete %></p>
