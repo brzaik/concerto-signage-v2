@@ -55,7 +55,7 @@
 		    		<div id="hp-title"> 
 		    			<%= image_tag("icons/robot_icon.png", :alt => @help_page.category.name.titleize, :title => @help_page.category.name.titleize )%>
 		    			<h1><%= @help_page.name %></h1> 
-		    			<h2><a href="/help">Help</a> :: <%= link_to @help_page.category.name.titleize, @help_page.category %></h2> 
+		    			<h2><a href="/help">Help</a> :: <%= @help_page.category.name.titleize %></h2> 
 		    		</div> 
 		    		<div style="clear:both;"></div> 
 		    		<p id="hp-details"><b>Last modified:</b> <%= @help_page.updated_at.strftime('%l:%M %P on %B %e, %Y') unless @help_page.updated_at.nil?%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Article:</b> <%= @help_page.category.id unless @help_page.category.nil? %>-<%= params[:id] %></p> 
