@@ -16,7 +16,7 @@ class HelpPagesController < ApplicationController
         
     respond_to do |format|
       format.html { render :layout => "help_page" } # index.html.erb
-      format.json { render json: @categories }
+      format.json { render :json => @categories }
     end
   end
 
@@ -30,7 +30,7 @@ class HelpPagesController < ApplicationController
 
     respond_to do |format|
       format.html { render :layout => "help_page" }# show.html.erb
-      format.json { render json: @help_page }
+      format.json { render :json => @help_page }
     end
   end
 
@@ -42,7 +42,7 @@ class HelpPagesController < ApplicationController
 		
     respond_to do |format|
       format.html {  } # new.html.erb
-      format.json { render json: @help_page }
+      format.json { render :json => @help_page }
     end
   end
 
@@ -81,11 +81,11 @@ class HelpPagesController < ApplicationController
     respond_to do |format|
       if @help_page.update_attributes(params[:help_page])
         flash[:notice] = 'Help page was successfully updated'
-        format.html { redirect_to @help_page, notice: 'Help page was successfully updated.' }
+        format.html { redirect_to @help_page, :notice => 'Help page was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @help_page.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @help_page.errors, :status => :unprocessable_entity }
       end
     end
   end
