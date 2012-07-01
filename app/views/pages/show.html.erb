@@ -12,4 +12,6 @@
 <%= render @columns %>
 <div style="clear:both;"></div>
 
-<%= render :partial => "contacts/new", :locals => { :contact => @new_contact, :controller_name => controller.controller_name } %>
+<% if @page.allow_comments? %>
+  <%= render :partial => "contacts/new", :locals => { :contact => @new_contact, :controller_name => controller.controller_name } %>
+<% end %>
