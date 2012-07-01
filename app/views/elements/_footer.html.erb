@@ -7,15 +7,16 @@
 			<%= link_to "Blog", "/blog" %> |
 			<%= mail_to "team@concerto-signage.org", "Contact Team", :encode => "hex" %>
 		</p> 
-		<p>&copy; 2007-2011 The Concerto Project.  All rights reserved.</p>
+		<p>&copy; 2007-2012 The Concerto Project.  All rights reserved.</p>
 		<p class="small">Concerto is free software; you can redistribute it and/or modify it under the terms of the License included with the software.</p>
+		<p class="small">Use of the Concerto name and logo mark are governed by the <%= link_to "Concerto Trademark Policy", "/pages/trademark-policy" %>.</p>
 	</div>
 	<div style="float:right; width:28%; text-align:right;">
 		<% if user_signed_in? %>
 	  	  <p class="small">Welcome <%= current_user.name %>!</p>
 		  <p class="small"><%= link_to "Edit Account", edit_user_path(current_user) %> | <%= link_to 'Logout', destroy_user_session_path, :confirm => 'Are you sure?' %></p>
 		<% else %>
-		  <p class="small"><%= link_to 'Site Login', new_user_session_path %></p>
+		  <p class="small"><%= link_to 'Admin Login', new_user_session_path %></p>
 		<% end %>
 	</div>
 	<div style="clear:both;"></div>
