@@ -1,6 +1,9 @@
 require 'rss'
 
 class FrontpageController < ApplicationController
+
+  caches_action :index, :unless => Proc.new{ user_signed_in? }
+
   def index
     @pages = Page.all
     

@@ -14,7 +14,7 @@
 		<!--[if lt IE 9]>
 		<%= javascript_include_tag "html5.js" %>
 		<![endif]-->
-		
+		<%= render :partial => "elements/stats" %>
 	</head>
 
 	<body<% if controller.controller_name == "pages" && controller.action_name == "show" %> class="category_<%= @page.category.name.downcase %>"<% end %>>
