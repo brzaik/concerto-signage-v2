@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921031458) do
+ActiveRecord::Schema.define(:version => 20120901000217) do
 
   create_table "blocks", :force => true do |t|
     t.string   "name"
@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(:version => 20110921031458) do
     t.string   "controller_name", :default => "pages"
     t.string   "page_slug"
     t.boolean  "was_helpful",     :default => false
+    t.string   "user_ip"
+    t.string   "user_agent"
+    t.string   "referrer"
   end
 
   create_table "help_pages", :force => true do |t|
@@ -88,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20110921031458) do
     t.string   "cached_slug"
     t.string   "short_description"
     t.integer  "ckeditor_asset_id"
+    t.boolean  "allow_comments"
   end
 
   create_table "sessions", :force => true do |t|
@@ -172,7 +176,6 @@ ActiveRecord::Schema.define(:version => 20110921031458) do
   end
 
   add_index "wp_comments", ["comment_approved", "comment_date_gmt"], :name => "comment_approved_date_gmt"
-  add_index "wp_comments", ["comment_approved"], :name => "comment_approved"
   add_index "wp_comments", ["comment_date_gmt"], :name => "comment_date_gmt"
   add_index "wp_comments", ["comment_parent"], :name => "comment_parent"
   add_index "wp_comments", ["comment_post_ID"], :name => "comment_post_ID"
@@ -195,10 +198,9 @@ ActiveRecord::Schema.define(:version => 20110921031458) do
   add_index "wp_links", ["link_visible"], :name => "link_visible"
 
   create_table "wp_options", :primary_key => "option_id", :force => true do |t|
-    t.integer "blog_id",                            :default => 0,     :null => false
-    t.string  "option_name",  :limit => 64,         :default => "",    :null => false
-    t.text    "option_value", :limit => 2147483647,                    :null => false
-    t.string  "autoload",     :limit => 20,         :default => "yes", :null => false
+    t.string "option_name",  :limit => 64,         :default => "",    :null => false
+    t.text   "option_value", :limit => 2147483647,                    :null => false
+    t.string "autoload",     :limit => 20,         :default => "yes", :null => false
   end
 
   add_index "wp_options", ["option_name"], :name => "option_name", :unique => true
@@ -228,7 +230,7 @@ ActiveRecord::Schema.define(:version => 20110921031458) do
     t.text     "pinged",                                                             :null => false
     t.datetime "post_modified",                                                      :null => false
     t.datetime "post_modified_gmt",                                                  :null => false
-    t.text     "post_content_filtered",                                              :null => false
+    t.text     "post_content_filtered", :limit => 2147483647,                        :null => false
     t.integer  "post_parent",           :limit => 8,          :default => 0,         :null => false
     t.string   "guid",                                        :default => "",        :null => false
     t.integer  "menu_order",                                  :default => 0,         :null => false

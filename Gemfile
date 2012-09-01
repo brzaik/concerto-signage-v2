@@ -27,3 +27,5 @@ gem "tanker"
 gem "recaptcha", :require => "recaptcha/rails"
 
 gem "devise"
+
+gem "rakismet"

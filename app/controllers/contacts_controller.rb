@@ -15,10 +15,15 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     @contact.controller_name = params[:controller_name]
     @contact.page_slug = params[:page_slug]
-    if verify_recaptcha(:model => @contact, :message => "CAPTCHA Error") && @contact.save
-      flash[:notice] = "Contact successfully created"
-      ContactMailer.contact_confirmation(@contact).deliver
-      redirect_to :back
+    @contact.user_ip = request.env['REMOTE_ADDR']
+    @contact.user_agent = request.env['HTTP_USER_AGENT'] 
+    @contact.referrer = request.env['HTTP_REFERER']
+    if verify_recaptcha(:model => @contact, :message => "CAPTCHA Error") && @contact.spam? == false
+      if @contact.save
+        flash[:notice] = "Contact successfully created"
+        ContactMailer.contact_confirmation(@contact).deliver
+        redirect_to :back
+      end
     end
   end
 
