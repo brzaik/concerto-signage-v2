@@ -22,9 +22,13 @@ class ContactsController < ApplicationController
       if @contact.save
         flash[:notice] = "Contact successfully created"
         ContactMailer.contact_confirmation(@contact).deliver
-        redirect_to :back
+      else
+        flash[:notice] = "Contact failed to create"
       end
+    else
+      flash[:notice] = "Failed recaptcha.  Try again"
     end
+    redirect_to :back #, :locals => {:contacts => @contact}
   end
 
   # DELETE /contacts/1
