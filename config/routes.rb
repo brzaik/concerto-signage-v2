@@ -3,15 +3,13 @@ ConcOrg2::Application.routes.draw do
   resources :users
 
   root :to => "frontpage#index"
-	
+
   # named routes for major site pages:
   match "deploy", :to => "pages#show", :id => "deploy"
   match "demo", :to => "pages#show", :id => "demo"
   match "overview", :to => "pages#show", :id => "overview"
   match "why-concerto", :to => "pages#show", :id => "why-concerto"
-  
-  match "contact", :to => "contacts#new", :as => "contact"
-	
+
   match "help", :to => "help_pages#index"
   match "help_pages/send_email", :to => "help_pages#send_email"  
   resources :help_pages do
@@ -23,7 +21,7 @@ ConcOrg2::Application.routes.draw do
 
   resources :categories
   
-  resources :contacts
+  resources :contacts, :only => [:index, :create, :destroy]
   
   resources :blocks do
     member do
